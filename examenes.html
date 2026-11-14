@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Problemas de examen · Informática Aplicada · Guía para aprobar</title>
+<meta name="description" content="Problemas de examen de Informática Aplicada (UPCT) resueltos en C">
+<meta name="theme-color" content="#2456b4">
+<link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none">← Todas las guías GIEyA</a><p class="fecha" style="margin:6px 0 0;max-width:none;font:13px/1.45 system-ui,sans-serif;color:var(--muted)">Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p></div>
+<div class="crumb"><a href="index.html">Informática Aplicada</a><span class="sep">›</span><span>Practicar</span><span class="sep">›</span><span>Problemas</span></div><a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc"><a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div><a href="index.html#cero" style="--tc:var(--c0)">Empieza aquí desde cero</a><a href="plan.html" style="--tc:var(--c0)">Cómo es la evaluación</a><a href="index.html#progreso" style="--tc:var(--c0)">Tu progreso</a><div class="grp">UD1 Sistemas informáticos</div><a href="tema-01.html" style="--tc:var(--c2)">T1 Introducción a los sistemas informáticos</a><a href="tema-02.html" style="--tc:var(--c3)">T2 Estructura del computador y representación de la información</a><div class="grp">UD2 Programación en C</div><a href="tema-03.html" style="--tc:var(--c4)">T3 Programación estructurada y algoritmia</a><a href="tema-04.html" style="--tc:var(--c5)">T4 Tipos de datos primitivos y entrada/salida</a><a href="tema-05.html" style="--tc:var(--c6)">T5 Estructuras de control: selección y repetición</a><a href="tema-06.html" style="--tc:var(--c7)">T6 Tipos estructurados de datos: vectores, matrices y cadenas</a><a href="tema-07.html" style="--tc:var(--c8)">T7 Abstracción funcional: funciones, paso de parámetros, recursividad y punteros</a><div class="grp">UD3 Sistemas operativos y bases de datos</div><a href="tema-08.html" style="--tc:var(--c1)">T8 Conceptos básicos de sistemas operativos</a><a href="tema-09.html" style="--tc:var(--c2)">T9 Bases de datos relacionales y SQL</a><div class="grp">Practicar</div><a href="cuestiones.html" style="--tc:var(--c8)">Teoría de examen: lista cerrada respondida</a><a href="examenes.html" style="--tc:var(--c8)" class="on" aria-current="page">Problemas de examen resueltos en C</a><a href="problemas.html" style="--tc:var(--c8)">Test de examen y SQL</a><a href="laboratorio.html" style="--tc:var(--c7)">Prácticas</a><a href="formulario.html" style="--tc:var(--c8)">Chuleta C y SQL</a></nav>
+<main>
+<section class="sec" style="--tc:var(--c8);--tcs:var(--c8s)"><div class="sh"><span aria-hidden="true" class="badge">Ex</span><div class="shx"><p class="kick">Practicar · Problemas</p><h2 id="exam">Problemas de examen resueltos en C</h2><div class="tags"><span class="tag">10 problemas</span><span class="tag">70 % del examen · mínimo 40 %</span></div></div></div>
+<div class="zero"><p class="ft">Cómo usarlos</p><p>Son los problemas de la recopilación oficial (septiembre 2019) y de los exámenes de 2013-2019. Todos siguen el mismo guion: un <b>diagrama de estructura</b>, los <b>prototipos</b> dados, y se pide completar main y algunas funciones. Las soluciones de esta página están <b>compiladas con gcc y probadas</b> (donde la recopilación trae solución oficial, coinciden en el método). El objetivo declarado del profesor: leer un diagrama, declarar y validar, iterar, vectores y matrices, funciones con paso por valor y referencia (punteros) y criticar código ajeno.</p></div><div class="prob"><h3 class="ph" id="ex1">Problema 1 · Círculos: menú, validación y funciones con punteros <span class="tag">Septiembre 2019 (y recopilación)</span> <a class="tag" href="tema-07.html">T7</a></h3><div class="enun"><p class="et">Enunciado</p><p>Programa con menú repetido (switch, opción 3 sale): 1) área de un círculo dado el radio; 2) pintar los puntos y = b ± √(r² − (x−a)²) para x entre x_min y x_max en pasos de 1, validando el intervalo (x_min &lt; x_max, diferencia &lt; 100, dentro del dominio [a−r, a+r]) con mensajes. Versión extra: los cinco datos en un vector.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+#define PI 3.14159
+double area_circulo(double r);
+void pinta_puntos(double r, double a, double b, double x_min, double x_max);
+void datos_para_pintar_puntos(double *r, double *a, double *b, double *xmin, double *xmax);
+double lee_radio(void);
+int validar_intervalo(double r, double a, double b, double x_min, double x_max);
+void datos_para_pintar_puntos2(double v[5]);
+
+int main(void) {
+    int opcion;
+    double radio, area, a, b, xmin, xmax;
+    do {
+        printf("\n1. Area de un circulo\n2. Pintar puntos\n3. Salir\nOpcion: ");
+        scanf(" %d", &amp;opcion);
+        switch (opcion) {
+            case 1: radio = lee_radio(); area = area_circulo(radio);
+                    printf("Area = %.2lf\n", area); break;
+            case 2: datos_para_pintar_puntos(&amp;radio, &amp;a, &amp;b, &amp;xmin, &amp;xmax);
+                    pinta_puntos(radio, a, b, xmin, xmax); break;
+            case 3: printf("Adios\n"); break;
+            default: printf("Opcion no valida\n");
+        }
+    } while (opcion != 3);
+    return 0;
+}
+double lee_radio(void) { double r; printf("Radio: "); scanf(" %lf", &amp;r); return r; }
+double area_circulo(double r) { return PI * r * r; }
+void datos_para_pintar_puntos(double *r, double *a, double *b, double *xmin, double *xmax) {
+    printf("Radio: "); scanf(" %lf", r);
+    printf("Centro a: "); scanf(" %lf", a);
+    printf("Centro b: "); scanf(" %lf", b);
+    printf("x minimo: "); scanf(" %lf", xmin);
+    printf("x maximo: "); scanf(" %lf", xmax);
+}
+int validar_intervalo(double r, double a, double b, double x_min, double x_max) {
+    if (x_min &gt;= x_max) { printf("Intervalo no valido!\n"); return -1; }
+    if (x_max - x_min &gt;= 100) { printf("Demasiados puntos para pintar!\n"); return -1; }
+    if (x_min &lt; a - r || x_max &gt; a + r) { printf("Nos salimos del dominio!\n"); return -1; }
+    return 0;
+}
+void pinta_puntos(double r, double a, double b, double x_min, double x_max) {
+    double x, y1, y2;
+    if (validar_intervalo(r, a, b, x_min, x_max) == -1) return;
+    for (x = x_min; x &lt;= x_max; x += 1.0) {
+        y1 = b + sqrt(r*r - (x-a)*(x-a));
+        y2 = b - sqrt(r*r - (x-a)*(x-a));
+        printf("x = %.2lf  y1 = %.2lf  y2 = %.2lf\n", x, y1, y2);
+    }
+}
+void datos_para_pintar_puntos2(double v[5]) {
+    const char *txt[5] = {"Radio", "Centro a", "Centro b", "x minimo", "x maximo"};
+    int i;
+    for (i = 0; i &lt; 5; i++) { printf("%s: ", txt[i]); scanf(" %lf", &amp;v[i]); }
+}
+</pre><p class="muted">El main solo coordina: lee la opción y llama; cada mensaje de error lo imprime validar_intervalo antes de devolver −1; datos_para_pintar_puntos escribe directamente en los punteros recibidos (sin &amp; dentro, porque ya son direcciones).</p></div></details></div><div class="prob"><h3 class="ph" id="ex2">Problema 2 · Tres en raya: tablero en vector, turnos y líneas ganadoras <span class="tag">Febrero 2019</span> <a class="tag" href="tema-06.html">T6</a></h3><div class="enun"><p class="et">Enunciado</p><p>Tablero en char square[10] (posición 0 sin usar). Implementar chequear_movimiento (0 si la casilla estaba libre y escribe 'X'/'O'; −1 si ocupada), obtener_movimiento (pide casilla 1-9 hasta que sea válida, por referencia), chequear_ganador (1 ganador, 0 empate, −1 sigue) y completar main. Extra: chequear_ganador con matriz 3×3.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+int chequear_ganador(char t[]);
+void dibujar_tablero(char t[]);
+int chequear_movimiento(char t[], int casilla, char jugador);
+void obtener_movimiento(int *casilla, int jugador);
+int chequear_ganador3x3(char v[3][3]);
+
+int main(void) {
+    int player = 2, i, choice;
+    char square[10] = {'o','1','2','3','4','5','6','7','8','9'};
+    char mark;
+    do {
+        dibujar_tablero(square);                       /* 1 */
+        player = (player == 2) ? 1 : 2;
+        obtener_movimiento(&amp;choice, player);           /* 2 */
+        mark = (player == 1) ? 'X' : 'O';
+        if (chequear_movimiento(square, choice, mark) == -1) {   /* 3 */
+            printf("\nMovimiento no valido ");
+            player = (player == 2) ? 1 : 2;
+        }
+        i = chequear_ganador(square);
+    } while (i == -1);                                 /* 4 */
+    dibujar_tablero(square);                           /* 5 */
+    if (i == 1) printf("==&gt; Jugador %d gana :)\n", player);
+    else printf("==&gt; Empate :(\n");
+    return 0;
+}
+void dibujar_tablero(char t[]) {
+    int f;
+    for (f = 0; f &lt; 3; f++) {
+        printf(" %c | %c | %c \n", t[3*f+1], t[3*f+2], t[3*f+3]);
+        if (f &lt; 2) printf("---|---|---\n");
+    }
+}
+int chequear_movimiento(char t[], int casilla, char jugador) {
+    if (t[casilla] == 'X' || t[casilla] == 'O') return -1;
+    t[casilla] = jugador;
+    return 0;
+}
+void obtener_movimiento(int *casilla, int jugador) {
+    do {
+        printf("Jugador %d, elige casilla (1-9): ", jugador);
+        scanf(" %d", casilla);
+    } while (*casilla &lt; 1 || *casilla &gt; 9);
+}
+int chequear_ganador(char t[]) {
+    int lineas[8][3] = {{1,2,3},{4,5,6},{7,8,9},{1,4,7},{2,5,8},{3,6,9},{1,5,9},{3,5,7}};
+    int k, i;
+    for (k = 0; k &lt; 8; k++)
+        if (t[lineas[k][0]] == t[lineas[k][1]] &amp;&amp; t[lineas[k][1]] == t[lineas[k][2]]) return 1;
+    for (i = 1; i &lt;= 9; i++)
+        if (t[i] != 'X' &amp;&amp; t[i] != 'O') return -1;   /* queda alguna libre */
+    return 0;
+}
+int chequear_ganador3x3(char v[3][3]) {
+    int i, j, libres = 0;
+    for (i = 0; i &lt; 3; i++) {
+        if (v[i][0] == v[i][1] &amp;&amp; v[i][1] == v[i][2]) return 1;   /* fila */
+        if (v[0][i] == v[1][i] &amp;&amp; v[1][i] == v[2][i]) return 1;   /* columna */
+    }
+    if (v[0][0] == v[1][1] &amp;&amp; v[1][1] == v[2][2]) return 1;
+    if (v[0][2] == v[1][1] &amp;&amp; v[1][1] == v[2][0]) return 1;
+    for (i = 0; i &lt; 3; i++) for (j = 0; j &lt; 3; j++)
+        if (v[i][j] != 'X' &amp;&amp; v[i][j] != 'O') libres++;
+    return libres ? -1 : 0;
+}
+</pre><p class="muted">Las 8 líneas ganadoras en una matriz de índices evitan ocho if; el empate se detecta cuando no queda ninguna casilla sin 'X' ni 'O'. En main, si el movimiento no vale se devuelve el turno al mismo jugador re-alternando.</p></div></details></div><div class="prob"><h3 class="ph" id="ex3">Problema 3 · Punto de silla de una matriz <span class="tag">Recopilación (parcial)</span> <a class="tag" href="tema-06.html">T6</a></h3><div class="enun"><p class="et">Enunciado</p><p>Punto silla: máximo de su fila y mínimo de su columna. leeMatriz valida cada valor en [MIN, MAX]; maximoFila y minimoColumna devuelven el valor con return y la posición por referencia; puntoSilla recorre las filas: columna del máximo de la fila i → fila del mínimo de esa columna → hay silla si coincide con i.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+#define TAM 5
+#define MIN 0
+#define MAX 9
+void leeMatriz(int m[TAM][TAM]);
+int maximoFila(int m[TAM][TAM], int fila, int *columna);
+int minimoColumna(int m[TAM][TAM], int columna, int *fila);
+int puntoSilla(int m[TAM][TAM], int *fila, int *columna);
+int main(void) {
+    int m[TAM][TAM], f, c;
+    leeMatriz(m);
+    if (puntoSilla(m, &amp;f, &amp;c)) printf("Punto silla en [%d,%d] = %d\n", f, c, m[f][c]);
+    else printf("No hay punto silla\n");
+    return 0;
+}
+void leeMatriz(int m[TAM][TAM]) {
+    int i, j, t;
+    for (i = 0; i &lt; TAM; i++) for (j = 0; j &lt; TAM; j++) {
+        do { printf("Valor [%d,%d]: ", i, j); scanf(" %d", &amp;t); } while (t &lt; MIN || t &gt; MAX);
+        m[i][j] = t;
+    }
+}
+int maximoFila(int m[TAM][TAM], int fila, int *columna) {
+    int j, max = m[fila][0]; *columna = 0;
+    for (j = 1; j &lt; TAM; j++) if (m[fila][j] &gt; max) { max = m[fila][j]; *columna = j; }
+    return max;
+}
+int minimoColumna(int m[TAM][TAM], int columna, int *fila) {
+    int i, min = m[0][columna]; *fila = 0;
+    for (i = 1; i &lt; TAM; i++) if (m[i][columna] &lt; min) { min = m[i][columna]; *fila = i; }
+    return min;
+}
+int puntoSilla(int m[TAM][TAM], int *fila, int *columna) {
+    int i, hayPS = 0;
+    for (i = 0; i &lt; TAM &amp;&amp; !hayPS; i++) {
+        maximoFila(m, i, columna);          /* columna del maximo de la fila i */
+        minimoColumna(m, *columna, fila);   /* fila del minimo de esa columna */
+        hayPS = (*fila == i);
+    }
+    if (!hayPS) { *fila = -1; *columna = -1; }
+    return hayPS;
+}
+</pre><p class="muted">Observa cómo se encadenan los punteros: puntoSilla recibe int *fila, *columna y se los pasa tal cual a las auxiliares; al comparar usa *fila. Si no hay silla devuelve −1 en ambos.</p></div></details></div><div class="prob"><h3 class="ph" id="ex4">Problema 4 · Bolzano: raíz de un polinomio por bisección <span class="tag">Junio 2019 (y P2S4 de prácticas)</span> <a class="tag" href="tema-07.html">T7</a></h3><div class="enun"><p class="et">Enunciado</p><p>validar_intervalo evalúa el polinomio en a y b (vector de coeficientes c[0..g]) y devuelve 0 si f(a)·f(b)&lt;0, −1 si no cambia de signo y −2 si un extremo ya es raíz; encontrar_raiz parte el intervalo por la mitad hasta |f(m)| &lt; PRECISION o MAX_INTENTOS, devolviendo la raíz por referencia; main con switch sobre el resultado de la validación.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+#define MAX_INTENTOS 1000
+#define PRECISION 0.000001
+#define MAXIMO_GRADO 100
+void leer_coeficientes(int g, double *c);
+void leer_intervalo(double *a, double *b);
+short validar_intervalo(double a, double b, double c[], short g);
+short encontrar_raiz(double *raiz, double a, double b, double c[], short g);
+double evalua(double x, double c[], short g);
+
+int main(void) {
+    short grado, cumple, encontro;
+    double a, b, raiz, coefs[MAXIMO_GRADO];
+    printf("Grado del polinomio (0 para salir): ");
+    scanf("%hd", &amp;grado);
+    if (grado &lt;= 0) return 0;
+    leer_coeficientes(grado, coefs);
+    leer_intervalo(&amp;a, &amp;b);
+    cumple = validar_intervalo(a, b, coefs, grado);
+    switch (cumple) {
+        case 0:
+            encontro = encontrar_raiz(&amp;raiz, a, b, coefs, grado);
+            if (encontro) printf("Raiz en x = %lf\n", raiz);
+            else printf("No se alcanzo la precision en %d intentos\n", MAX_INTENTOS);
+            break;
+        case -1: printf("f(a) y f(b) tienen el mismo signo: Bolzano no asegura raiz\n"); break;
+        case -2: printf("Uno de los extremos ya es raiz\n"); break;
+    }
+    return 0;
+}
+double evalua(double x, double c[], short g) {       /* Horner */
+    double r = c[g]; int i;
+    for (i = g - 1; i &gt;= 0; i--) r = r * x + c[i];
+    return r;
+}
+void leer_coeficientes(int g, double *c) {
+    int i;
+    for (i = 0; i &lt;= g; i++) { printf("Coeficiente de x^%d: ", i); scanf(" %lf", &amp;c[i]); }
+}
+void leer_intervalo(double *a, double *b) {
+    do { printf("a: "); scanf(" %lf", a); printf("b: "); scanf(" %lf", b); } while (*a &gt;= *b);
+}
+short validar_intervalo(double a, double b, double c[], short g) {
+    double ra = evalua(a, c, g), rb = evalua(b, c, g);
+    if (ra == 0 || rb == 0) return -2;
+    if (ra * rb &gt; 0) return -1;
+    return 0;
+}
+short encontrar_raiz(double *raiz, double a, double b, double c[], short g) {
+    int intentos = 0;
+    double m, fm, fa = evalua(a, c, g);
+    do {
+        m = (a + b) / 2;
+        fm = evalua(m, c, g);
+        if (fa * fm &lt; 0) b = m; else { a = m; fa = fm; }
+        intentos++;
+    } while (fabs(fm) &gt; PRECISION &amp;&amp; intentos &lt; MAX_INTENTOS);
+    *raiz = m;
+    return fabs(fm) &lt;= PRECISION;
+}
+</pre><p class="muted">Probado con x²+4x−6 en [1,5]: raíz 1,162278 = −2+√10. La evaluación usa Horner (r = r·x + c[i]) para no llamar a pow en cada término.</p></div></details></div><div class="prob"><h3 class="ph" id="ex5">Problema 5 · Palíndromo: número + reverso hasta ser capicúa <span class="tag">Junio 2018</span> <a class="tag" href="tema-06.html">T6</a></h3><div class="enun"><p class="et">Enunciado</p><p>Dado un número, sumarlo a su reverso repetidamente hasta obtener un palíndromo (tope MAX_INTENTOS). pasa_a_vector descompone en dígitos (unidades en v[0]) y devuelve cuántos hay; obtiene_reverso, suma_vectores (dígito a dígito con acarreo, puede crear un dígito más), es_palindromo, imprimir y copiar; main con el bucle.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+#define MAX_INTENTOS 1000
+int leer_num(void);
+int pasa_a_vector(int x, int vx[]);
+void obtiene_reverso(int v[], int n, int rev[]);
+int suma_vectores(int a[], int b[], int n, int s[]);
+int es_palindromo(int v[], int n);
+void imprimir_palindromo(int num, int v[], int cont, int iter);
+void copia_vector(int o[], int d[], int n);
+
+int main(void) {
+    int num, vnum[1000], rev[1000], vsuma[1000], cont = 0, vueltas = 0, encontro = 0;
+    do num = leer_num(); while (num &lt;= 0);
+    cont = pasa_a_vector(num, vnum);
+    while (vueltas &lt; MAX_INTENTOS &amp;&amp; encontro == 0) {
+        obtiene_reverso(vnum, cont, rev);
+        cont = suma_vectores(vnum, rev, cont, vsuma);
+        vueltas++;
+        if (es_palindromo(vsuma, cont)) { encontro = 1; imprimir_palindromo(num, vsuma, cont, vueltas); }
+        else copia_vector(vsuma, vnum, cont);
+    }
+    if (!encontro) printf("No se encontro palindromo en %d iteraciones\n", MAX_INTENTOS);
+    return 0;
+}
+int leer_num(void) { int n; printf("Numero positivo: "); scanf(" %d", &amp;n); return n; }
+int pasa_a_vector(int x, int vx[]) {          /* vx[0] = menos significativo */
+    int n = 0;
+    do { vx[n++] = x % 10; x /= 10; } while (x &gt; 0);
+    return n;
+}
+void obtiene_reverso(int v[], int n, int rev[]) { int i; for (i = 0; i &lt; n; i++) rev[i] = v[n-1-i]; }
+int suma_vectores(int a[], int b[], int n, int s[]) {
+    int i, acarreo = 0, d;
+    for (i = 0; i &lt; n; i++) { d = a[i] + b[i] + acarreo; s[i] = d % 10; acarreo = d / 10; }
+    if (acarreo) { s[n] = acarreo; n++; }
+    return n;
+}
+int es_palindromo(int v[], int n) {
+    int i;
+    for (i = 0; i &lt; n / 2; i++) if (v[i] != v[n-1-i]) return 0;
+    return 1;
+}
+void imprimir_palindromo(int num, int v[], int cont, int iter) {
+    int i;
+    printf("Palindromo de %d tras %d iteraciones: ", num, iter);
+    for (i = cont - 1; i &gt;= 0; i--) printf("%d", v[i]);
+    printf("\n");
+}
+void copia_vector(int o[], int d[], int n) { int i; for (i = 0; i &lt; n; i++) d[i] = o[i]; }
+</pre><p class="muted">87 → 165 → 726 → 1353 → 4884 en 4 iteraciones (probado). La suma con acarreo es la parte puntuada: d = a[i]+b[i]+acarreo; s[i] = d%10; acarreo = d/10.</p></div></details></div><div class="prob"><h3 class="ph" id="ex6">Problema 6 · Contraseñas: clasificación con ctype y generador <span class="tag">Septiembre 2018</span> <a class="tag" href="tema-06.html">T6</a></h3><div class="enun"><p class="et">Enunciado</p><p>Clasificar una contraseña: muy débil (solo números, &lt; 8), débil (solo letras, &lt; 8), fuerte (letras + números, nada más, ≥ 8), muy fuerte (fuerte + otro imprimible), probablemente fuerte (resto). Si es muy débil, ofrecer generar una muy fuerte; repetir hasta que el usuario no quiera.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+short es_muy_debil(char p[]);
+short es_debil(char p[]);
+short es_fuerte(char p[]);
+short es_muy_fuerte(char p[]);
+void genera_muy_fuerte(char p[]);
+
+int main(void) {
+    char pass[100], resp;
+    srand((unsigned) time(NULL));
+    do {
+        printf("Contrasena: "); scanf(" %99s", pass);
+        if (es_muy_debil(pass)) {
+            printf("muy debil. Generar una muy fuerte? (s/n): "); scanf(" %c", &amp;resp);
+            if (resp == 's' || resp == 'S') { genera_muy_fuerte(pass); printf("Propuesta: %s\n", pass); }
+        } else if (es_debil(pass)) printf("debil\n");
+        else if (es_muy_fuerte(pass)) printf("muy fuerte\n");
+        else if (es_fuerte(pass)) printf("fuerte\n");
+        else printf("probablemente fuerte\n");
+        printf("Repetir? (s/n): "); scanf(" %c", &amp;resp);
+    } while (resp == 's' || resp == 'S');
+    return 0;
+}
+/* cuenta letras, digitos y otros imprimibles de una pasada */
+static void cuenta(char p[], int *l, int *d, int *o) {
+    int i; *l = *d = *o = 0;
+    for (i = 0; p[i]; i++)
+        if (isalpha((unsigned char)p[i])) (*l)++;
+        else if (isdigit((unsigned char)p[i])) (*d)++;
+        else if (isprint((unsigned char)p[i])) (*o)++;
+}
+short es_muy_debil(char p[]) { int l,d,o; cuenta(p,&amp;l,&amp;d,&amp;o); return strlen(p) &lt; 8 &amp;&amp; l == 0 &amp;&amp; o == 0 &amp;&amp; d &gt; 0; }
+short es_debil(char p[])     { int l,d,o; cuenta(p,&amp;l,&amp;d,&amp;o); return strlen(p) &lt; 8 &amp;&amp; d == 0 &amp;&amp; o == 0 &amp;&amp; l &gt; 0; }
+short es_fuerte(char p[])    { int l,d,o; cuenta(p,&amp;l,&amp;d,&amp;o); return strlen(p) &gt;= 8 &amp;&amp; l &gt; 0 &amp;&amp; d &gt; 0 &amp;&amp; o == 0; }
+short es_muy_fuerte(char p[]) {
+    int l,d,o; cuenta(p,&amp;l,&amp;d,&amp;o);
+    /* fuerte salvo por el caracter extra: reutilizamos el criterio de es_fuerte sin la condicion o==0 */
+    return strlen(p) &gt;= 8 &amp;&amp; l &gt; 0 &amp;&amp; d &gt; 0 &amp;&amp; o &gt; 0;
+}
+void genera_muy_fuerte(char p[]) {
+    const char *letras = "abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ", *digitos = "23456789", *otros = "?!$%&amp;#@";
+    int i;
+    for (i = 0; i &lt; 6; i++) p[i] = letras[rand() % strlen(letras)];
+    p[6] = digitos[rand() % 8]; p[7] = digitos[rand() % 8]; p[8] = otros[rand() % 7]; p[9] = '\0';
+}
+</pre><p class="muted">Una función auxiliar cuenta letras, dígitos y otros imprimibles de una pasada con isalpha/isdigit/isprint, y cada regla se escribe con esas cuentas y strlen. Probado: 'abc123xyz' fuerte, '1337h@xor!' muy fuerte, '12345' muy débil.</p></div></details></div><div class="prob"><h3 class="ph" id="ex7">Problema 7 · Control cardíaco (fórmula de Karvonen) <span class="tag">Problema 70 % (parcial)</span> <a class="tag" href="tema-05.html">T5</a></h3><div class="enun"><p class="et">Enunciado</p><p>máximo pulso = ((220 − edad) − reposo)·intensidad/100 + reposo. Validaciones: edad 1-110, reposo 30-120, min &gt; 0, max &gt; min y ≤ 100, incremento 1-10. pide_datos_fisicos devuelve por referencia; calcula_posiciones_rango rellena un vector con el pulso para cada intensidad y devuelve cuántos; aviso al médico si reposo &gt; 90 y opción de repetir.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+void pide_datos_fisicos(int *edad, int *pulsoreposo);
+void pide_intervalos(int *m, int *l);
+int pulsaciones_por_minuto(int edad, int pulsoreposo, int intensidad);
+int calcula_posiciones_rango(int min, int max, int inc, int edad, int pulsoreposo, int v[]);
+
+int main(void) {
+    int edad, reposo, min, max, inc, n, i, valores[101];
+    char resp;
+    do {
+        pide_datos_fisicos(&amp;edad, &amp;reposo);
+        if (reposo &gt; 90) printf("Aviso: pulso en reposo alto, consulte a su medico\n");
+        pide_intervalos(&amp;min, &amp;max);
+        do { printf("Incremento (1-10): "); scanf(" %d", &amp;inc); } while (inc &lt;= 0 || inc &gt; 10);
+        n = calcula_posiciones_rango(min, max, inc, edad, reposo, valores);
+        for (i = 0; i &lt; n; i++)
+            printf("Intensidad %3d %%: maximo %d ppm\n", min + i*inc, valores[i]);
+        printf("Repetir? (s/n): "); scanf(" %c", &amp;resp);
+    } while (resp == 's' || resp == 'S');
+    return 0;
+}
+void pide_datos_fisicos(int *edad, int *pulsoreposo) {
+    do { printf("Edad (1-110): "); scanf(" %d", edad); } while (*edad &lt;= 0 || *edad &gt; 110);
+    do { printf("Pulso en reposo (30-120): "); scanf(" %d", pulsoreposo); } while (*pulsoreposo &lt; 30 || *pulsoreposo &gt; 120);
+}
+void pide_intervalos(int *m, int *l) {
+    do {
+        printf("Intensidad minima (%%): "); scanf(" %d", m);
+        printf("Intensidad maxima (%%): "); scanf(" %d", l);
+    } while (*m &gt;= *l || *m &lt;= 0 || *l &gt; 100);
+}
+int pulsaciones_por_minuto(int edad, int pulsoreposo, int intensidad) {
+    return ((220 - edad) - pulsoreposo) * intensidad / 100 + pulsoreposo;   /* Karvonen */
+}
+int calcula_posiciones_rango(int min, int max, int inc, int edad, int pulsoreposo, int v[]) {
+    int n = 0, p;
+    for (p = min; p &lt;= max; p += inc) v[n++] = pulsaciones_por_minuto(edad, pulsoreposo, p);
+    return n;
+}
+</pre><p class="muted">El patrón do-while de validación se repite en todos los exámenes; el vector de resultados se rellena en la función y se imprime en main.</p></div></details></div><div class="prob"><h3 class="ph" id="ex8">Problema 8 · Cuadrado mágico: menú sobre una matriz <span class="tag">Recopilación</span> <a class="tag" href="tema-06.html">T6</a></h3><div class="enun"><p class="et">Enunciado</p><p>Menú: inicializar a 0, generar automáticamente (colocar 1 en el centro de la primera fila; cada número siguiente arriba-derecha con envolvimiento; si está ocupada, debajo del anterior), pintar, buscar un valor (posición por referencia, −1 si no está) y comprobar que todas las filas y columnas suman lo mismo.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+#define DIM 3
+void inicializa(int v[][DIM]);
+void pinta(int v[DIM][DIM]);
+int comprueba_filas(int v[DIM][DIM]);
+int comprueba_cols(int v[DIM][DIM]);
+void genera_auto(int v[DIM][DIM]);
+int busca_valor(int v[DIM][DIM], int valor, int *x, int *y);
+
+int main(void) {
+    int cuad[DIM][DIM], x, y, valor, opcion;
+    inicializa(cuad);
+    do {
+        printf("\n0 Salir 1 Generar 2 Pintar 3 Buscar valor 4 Comprobar: ");
+        scanf(" %d", &amp;opcion);
+        switch (opcion) {
+            case 0: break;
+            case 1: genera_auto(cuad); printf("Generado!\n"); break;
+            case 2: pinta(cuad); break;
+            case 3: printf("Valor: "); scanf(" %d", &amp;valor);
+                    if (busca_valor(cuad, valor, &amp;x, &amp;y) == 0) printf("En [%d,%d]\n", x, y);
+                    else printf("No esta\n"); break;
+            case 4: if (comprueba_filas(cuad) == 0 &amp;&amp; comprueba_cols(cuad) == 0) printf("Es magico\n");
+                    else printf("No es magico\n"); break;
+            default: printf("Opcion no valida\n");
+        }
+    } while (opcion != 0);
+    return 0;
+}
+void inicializa(int v[][DIM]) { int i, j; for (i = 0; i &lt; DIM; i++) for (j = 0; j &lt; DIM; j++) v[i][j] = 0; }
+void pinta(int v[DIM][DIM]) { int i, j; for (i = 0; i &lt; DIM; i++) { for (j = 0; j &lt; DIM; j++) printf("%d\t", v[i][j]); printf("\n"); } }
+int comprueba_filas(int v[DIM][DIM]) {
+    int i, j, s, ref = 0;
+    for (i = 0; i &lt; DIM; i++) { s = 0; for (j = 0; j &lt; DIM; j++) s += v[i][j]; if (i == 0) ref = s; else if (s != ref) return -1; }
+    return 0;
+}
+int comprueba_cols(int v[DIM][DIM]) {
+    int i, j, s, ref = 0;
+    for (j = 0; j &lt; DIM; j++) { s = 0; for (i = 0; i &lt; DIM; i++) s += v[i][j]; if (j == 0) ref = s; else if (s != ref) return -1; }
+    return 0;
+}
+void genera_auto(int v[DIM][DIM]) {        /* metodo siames: arriba-derecha, si ocupado abajo */
+    int n, f = 0, c = DIM / 2, nf, nc;
+    inicializa(v);
+    v[f][c] = 1;
+    for (n = 2; n &lt;= DIM*DIM; n++) {
+        nf = (f - 1 + DIM) % DIM; nc = (c + 1) % DIM;
+        if (v[nf][nc] != 0) { nf = (f + 1) % DIM; nc = c; }
+        f = nf; c = nc; v[f][c] = n;
+    }
+}
+int busca_valor(int v[DIM][DIM], int valor, int *x, int *y) {
+    int i, j;
+    for (i = 0; i &lt; DIM; i++) for (j = 0; j &lt; DIM; j++) if (v[i][j] == valor) { *x = i; *y = j; return 0; }
+    return -1;
+}
+</pre><p class="muted">El movimiento con envolvimiento se escribe con módulo: nf = (f−1+DIM)%DIM, nc = (c+1)%DIM. Probado con DIM = 3: genera 8 1 6 / 3 5 7 / 4 9 2.</p></div></details></div><div class="prob"><h3 class="ph" id="ex9">Problema 9 · Ley D'Hondt: reparto de diputados <span class="tag">Recopilación</span> <a class="tag" href="tema-06.html">T6</a></h3><div class="enun"><p class="et">Enunciado</p><p>getDatos lee diputados, partidos y votos; rellenaMatriz pone votos[i]/(j+1); getDiputados toma numDip veces el máximo de la matriz (maximoMatriz devuelve el valor y las coordenadas por referencia), suma un diputado al partido de esa fila y anula la celda.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+#define MAX_PARTIDOS 100
+#define MAX_DIPUTADOS 350
+short getDatos(short *numPart, long votos[]);
+void rellenaMatriz(short numDip, short numPart, long votos[], long m[MAX_PARTIDOS][MAX_DIPUTADOS]);
+void getDiputados(short numDip, short numPart, short dip[], long m[MAX_PARTIDOS][MAX_DIPUTADOS]);
+long maximoMatriz(short fil, short col, short *xMax, short *yMax, long m[MAX_PARTIDOS][MAX_DIPUTADOS]);
+
+int main(void) {
+    static long matriz[MAX_PARTIDOS][MAX_DIPUTADOS];
+    long votos[MAX_PARTIDOS]; short dip[MAX_PARTIDOS], numDip, numPart, i;
+    numDip = getDatos(&amp;numPart, votos);
+    rellenaMatriz(numDip, numPart, votos, matriz);
+    getDiputados(numDip, numPart, dip, matriz);
+    for (i = 0; i &lt; numPart; i++) printf("Partido %c: %hd diputados\n", 'A' + i, dip[i]);
+    return 0;
+}
+short getDatos(short *numPart, long votos[]) {
+    short nd, i;
+    do { printf("Diputados a elegir (1-%d): ", MAX_DIPUTADOS); scanf(" %hd", &amp;nd); } while (nd &lt; 1 || nd &gt; MAX_DIPUTADOS);
+    do { printf("Partidos (1-%d): ", MAX_PARTIDOS); scanf(" %hd", numPart); } while (*numPart &lt; 1 || *numPart &gt; MAX_PARTIDOS);
+    for (i = 0; i &lt; *numPart; i++) { printf("Votos del partido %c: ", 'A' + i); scanf(" %ld", &amp;votos[i]); }
+    return nd;
+}
+void rellenaMatriz(short numDip, short numPart, long votos[], long m[MAX_PARTIDOS][MAX_DIPUTADOS]) {
+    short i, j;
+    for (i = 0; i &lt; numPart; i++) for (j = 0; j &lt; numDip; j++) m[i][j] = votos[i] / (j + 1);
+}
+long maximoMatriz(short fil, short col, short *xMax, short *yMax, long m[MAX_PARTIDOS][MAX_DIPUTADOS]) {
+    short i, j; long max = -1;
+    for (i = 0; i &lt; fil; i++) for (j = 0; j &lt; col; j++)
+        if (m[i][j] &gt; max) { max = m[i][j]; *xMax = i; *yMax = j; }
+    return max;
+}
+void getDiputados(short numDip, short numPart, short dip[], long m[MAX_PARTIDOS][MAX_DIPUTADOS]) {
+    short k, x, y;
+    for (k = 0; k &lt; numPart; k++) dip[k] = 0;
+    for (k = 0; k &lt; numDip; k++) {          /* numDip veces: tomar el maximo y anularlo */
+        maximoMatriz(numPart, numDip, &amp;x, &amp;y, m);
+        dip[x]++;
+        m[x][y] = -1;
+    }
+}
+</pre><p class="muted">Probado con el ejemplo del enunciado (A 11000, B 20000, C 5000, D 15000, 5 escaños): A 1, B 2, C 0, D 2 ✓. Anular la celda usada (−1) es lo que permite repetir «buscar el máximo».</p></div></details></div><div class="prob"><h3 class="ph" id="ex10">Problema 10 · Problemas cortos clásicos <span class="tag">Febrero 2013 - Junio 2014</span> <a class="tag" href="tema-07.html">T7</a></h3><div class="enun"><p class="et">Enunciado</p><p>a) Representa −18,75 en IEEE 754. b) Función obtener_valores que lee voltaje y resistencia por referencia para calcular la intensidad. c) es_palindromo sobre un vector de enteros, con return y en versión void con resultado por referencia.</p></div><details class="paso"><summary><span class="pn">✓</span>Solución completa (compilada y probada)</summary><div class="inner"><pre class="code">/* a) 18,75 = 10010,11 = 1,001011 x 2^4 ; exponente 4+127 = 131 = 10000011
+      -18,75 -&gt; 1 10000011 00101100000000000000000  (solucion oficial)   */
+
+/* b) */
+void obtener_valores(float *v, float *r) {
+    printf("Teclee voltaje: ");     scanf(" %f", v);
+    printf("Teclee resistencia: "); scanf(" %f", r);
+}
+/* llamada: obtener_valores(&amp;voltaje, &amp;resistencia); */
+
+/* c) version 1 (return) */
+int es_palindromo(int v[], int n) {
+    int i;
+    for (i = 0; i &lt; n/2; i++) if (v[i] != v[n-1-i]) return -1;
+    return 1;
+}
+/* version 2 (por referencia) */
+void es_palindromo2(int v[], int n, int *res) {
+    int i; *res = 1;
+    for (i = 0; i &lt; n/2; i++) if (v[i] != v[n-1-i]) *res = -1;
+}
+/* main: int r; es_palindromo2(numero, 7, &amp;r); if (r==1) ... */</pre><p class="muted">Los «problemas cortos» de los exámenes antiguos (2013-2016) mezclan IEEE 754, una función con punteros y un mini diseño ER; son el precedente de los problemas largos actuales.</p></div></details></div></section>
+<nav class="pager" aria-label="Páginas"><a href="cuestiones.html"><small>← Anterior</small>Teoría de examen</a><a class="nx" href="problemas.html"><small>Siguiente →</small>Test de examen y SQL</a></nav><p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (UPCT, GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
+</main>
+</div>
+<script src="app.js"></script>
+<script src="test-data.js"></script>
+<script src="sims.js"></script>
+</body>
+</html>

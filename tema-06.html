@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T6 Tipos estructurados de datos: vectores, matrices y cadenas · Informática Aplicada · Guía para aprobar</title>
+<meta name="description" content="Informática Aplicada (UPCT, GIEyA): tema 6, Tipos estructurados de datos: vectores, matrices y cadenas">
+<meta name="theme-color" content="#2456b4">
+<link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none">← Todas las guías GIEyA</a><p class="fecha" style="margin:6px 0 0;max-width:none;font:13px/1.45 system-ui,sans-serif;color:var(--muted)">Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p></div>
+<div class="crumb"><a href="index.html">Informática Aplicada</a><span class="sep">›</span><span>UD2 Programación en C</span><span class="sep">›</span><span>T6 · Tipos estructurados de datos: vectores, matrices y cadenas</span></div><a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc"><a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div><a href="index.html#cero" style="--tc:var(--c0)">Empieza aquí desde cero</a><a href="plan.html" style="--tc:var(--c0)">Cómo es la evaluación</a><a href="index.html#progreso" style="--tc:var(--c0)">Tu progreso</a><div class="grp">UD1 Sistemas informáticos</div><a href="tema-01.html" style="--tc:var(--c2)">T1 Introducción a los sistemas informáticos</a><a href="tema-02.html" style="--tc:var(--c3)">T2 Estructura del computador y representación de la información</a><div class="grp">UD2 Programación en C</div><a href="tema-03.html" style="--tc:var(--c4)">T3 Programación estructurada y algoritmia</a><a href="tema-04.html" style="--tc:var(--c5)">T4 Tipos de datos primitivos y entrada/salida</a><a href="tema-05.html" style="--tc:var(--c6)">T5 Estructuras de control: selección y repetición</a><a href="tema-06.html" style="--tc:var(--c7)" class="on" aria-current="page">T6 Tipos estructurados de datos: vectores, matrices y cadenas</a><a href="tema-07.html" style="--tc:var(--c8)">T7 Abstracción funcional: funciones, paso de parámetros, recursividad y punteros</a><div class="grp">UD3 Sistemas operativos y bases de datos</div><a href="tema-08.html" style="--tc:var(--c1)">T8 Conceptos básicos de sistemas operativos</a><a href="tema-09.html" style="--tc:var(--c2)">T9 Bases de datos relacionales y SQL</a><div class="grp">Practicar</div><a href="cuestiones.html" style="--tc:var(--c8)">Teoría de examen: lista cerrada respondida</a><a href="examenes.html" style="--tc:var(--c8)">Problemas de examen resueltos en C</a><a href="problemas.html" style="--tc:var(--c8)">Test de examen y SQL</a><a href="laboratorio.html" style="--tc:var(--c7)">Prácticas</a><a href="formulario.html" style="--tc:var(--c8)">Chuleta C y SQL</a></nav>
+<main>
+<section class="sec tema" style="--tc:var(--c7);--tcs:var(--c7s)">
+<div class="sh"><span aria-hidden="true" class="badge">6</span><div class="shx"><p class="kick">UD2 Programación en C · Tema 6</p><h2 id="t6">Tipos estructurados de datos: vectores, matrices y cadenas</h2><div class="tags"><span class="tag">UD2 Programación en C</span><span class="tag">Problemas en C</span></div></div></div>
+<div class="zero"><p class="ft">Desde cero</p><p><b>Objetivo:</b> Declarar y recorrer vectores y matrices, pasarlos a funciones, buscar (lineal y binaria), ordenar (burbuja) y manejar cadenas de caracteres.</p><p>Un <b>vector</b> almacena secuencialmente en memoria una cantidad fija de elementos del mismo tipo, accesibles por índice de 0 a tamaño−1: <code>int v[10]; float a[100]; char s[3]={'d','5','*'}; short serie[]={1,3,6};</code>. Son estructuras estáticas (no crecen); C no comprueba los límites. Recorrido con for; <code>sizeof(v)/sizeof(v[0])</code> da el número de elementos (solo en el ámbito donde se declaró). <b>Matrices</b>: <code>int m[TAM][TAM]</code>, recorrido con dos for; filas y columnas; en funciones hay que indicar las dimensiones salvo la primera: <code>void f(int m[][TAM])</code>.</p>
+<p>Los vectores se pasan a funciones <b>por referencia</b> (se pasa la dirección del primer elemento: <code>void f(int v[])</code> o <code>int *v</code>), así que la función puede modificar el original; por eso <code>f1(a)</code> con <code>v[2]=4</code> cambia a[2]. Para reservar memoria en ejecución: <code>int *v = (int*)malloc(n*sizeof(int)); … free(v);</code>.</p>
+<p><b>Búsqueda</b> lineal (media n/2 comparaciones, máximo n) y <b>binaria</b> en vector ordenado (mitad y descartar; máximo el menor n con \(2^n>\) tamaño). <b>Ordenación</b>: burbuja (tamaño−1 pasadas, en cada una compara a[i] con a[i+1] e intercambia con una variable temporal; coloca el mayor al final; \(O(n^2)\)); selección e inserción como alternativas.</p>
+<p><b>Cadenas</b>: vectores de char terminados en <code>'\0'</code>: <code>char pal[MAX]; scanf("%s", pal);</code>; recorrido <code>while (pal[i]) i++;</code> o con <code>strlen</code>; <code>strcpy, strcmp, strcat</code> de &lt;string.h&gt;; <code>isalpha, isdigit, isprint, toupper</code> de &lt;ctype.h&gt;; vector de cadenas <code>char *dic[]={"casa","pelota"}</code> (ahorcado). Un número se descompone en dígitos con % 10 y / 10 (palíndromo).</p></div>
+<details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 6 <span class="src">5 símbolos</span></summary><div class="inner">
+<div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr><tr><td class="sym">Tipo v[N]</td><td>Vector: índices 0…N−1</td><td class="u">estático</td></tr><tr><td class="sym">m[F][C]</td><td>Matriz</td><td class="u">dos for</td></tr><tr><td class="sym">burbuja</td><td>Ordenación n²</td><td class="u">pasadas de vecinos</td></tr><tr><td class="sym">búsqueda binaria</td><td>log₂ n sobre ordenado</td><td class="u"></td></tr><tr><td class="sym">cadena</td><td>char[] acabado en \0</td><td class="u">strlen, strcmp, strcpy</td></tr></table></div></div></details>
+<figure class="fig"><p class="ft">Figura interactiva · burbuja y búsqueda binaria paso a paso</p><div data-sim="ordenacion"></div><figcaption>Mueve los controles y lee el recuadro: la figura ejecuta lo mismo que tú trazarías a mano en el examen.</figcaption></figure>
+<h3 id="t6-formulas">Lo que tienes que saber</h3>
+<div class="box key"><ul>
+<li>Burbuja: <code>for(p=0;p&lt;n-1;p++) for(i=0;i&lt;n-p-1;i++) if(a[i]&gt;a[i+1]){t=a[i];a[i]=a[i+1];a[i+1]=t;}</code></li>
+<li>Binaria: <code>ini=0; fin=n-1; while(ini&lt;=fin &amp;&amp; !enc){ m=(ini+fin)/2; if(v[m]==x) enc=1; else if(v[m]&lt;x) ini=m+1; else fin=m-1; }</code></li>
+<li>Máximo de una fila y su columna: <code>max=m[f][0]; *col=0; for(j=1;j&lt;TAM;j++) if(m[f][j]&gt;max){max=m[f][j];*col=j;}</code></li>
+<li>Inicializar matriz: dos for anidados; pintar: for filas { for columnas printf("%d\t"); printf("\n"); }.</li>
+<li>Palíndromo de una cadena: <code>for(i=0;i&lt;n/2;i++) if(s[i]!=s[n-1-i]) return 0; return 1;</code></li></ul></div>
+<h3 id="t6-metodo">Cómo se resuelve</h3>
+<ol class="steps"><li>Dibuja el vector con sus índices antes de programar; marca qué índice recorre qué.</li><li>Para «buscar» devuelve 1/0 o la posición (−1 si no está) y usa bandera para cortar.</li><li>Para matrices decide si recorres por filas (i exterior) o por columnas (j exterior) según lo que acumules.</li></ol>
+<div class="box trap"><h4>Trampas típicas</h4><ul><li>Índices fuera de rango (v[n]).</li><li>Olvidar el '\0' al construir cadenas a mano (añadeLetra del ahorcado: <code>while(letras[i++]);</code> deja i una posición más allá: error del enunciado).</li><li>Comparar cadenas con == o copiarlas con =.</li><li>Pasar una matriz sin la segunda dimensión en el prototipo.</li></ul></div>
+<h3 id="t6-problema">Problema tipo</h3>
+<div class="prob"><div class="enun"><p class="et">Enunciado</p><p><b>(Problema de examen: punto de silla)</b> Un punto silla es el máximo de su fila y el mínimo de su columna. Implementa <code>leeMatriz</code> (valores en [MIN, MAX] con validación), <code>maximoFila</code>, <code>minimoColumna</code> (devuelven el valor y por referencia la posición), <code>puntoSilla</code> y main.</p></div>
+<details class="paso"><summary><span class="pn">✓</span>Ver solución paso a paso</summary><div class="inner"><pre class="code">#include &lt;stdio.h&gt;
+#define TAM 5
+#define MIN 0
+#define MAX 9
+void leeMatriz(int m[TAM][TAM]);
+int maximoFila(int m[TAM][TAM], int fila, int *columna);
+int minimoColumna(int m[TAM][TAM], int columna, int *fila);
+int puntoSilla(int m[TAM][TAM], int *fila, int *columna);
+int main(void) {
+    int m[TAM][TAM], f, c;
+    leeMatriz(m);
+    if (puntoSilla(m, &amp;f, &amp;c)) printf("Punto silla en [%d,%d] = %d\n", f, c, m[f][c]);
+    else printf("No hay punto silla\n");
+    return 0;
+}
+void leeMatriz(int m[TAM][TAM]) {
+    int i, j, t;
+    for (i = 0; i &lt; TAM; i++) for (j = 0; j &lt; TAM; j++) {
+        do { printf("Valor [%d,%d]: ", i, j); scanf(" %d", &amp;t); } while (t &lt; MIN || t &gt; MAX);
+        m[i][j] = t;
+    }
+}
+int maximoFila(int m[TAM][TAM], int fila, int *columna) {
+    int j, max = m[fila][0]; *columna = 0;
+    for (j = 1; j &lt; TAM; j++) if (m[fila][j] &gt; max) { max = m[fila][j]; *columna = j; }
+    return max;
+}
+int minimoColumna(int m[TAM][TAM], int columna, int *fila) {
+    int i, min = m[0][columna]; *fila = 0;
+    for (i = 1; i &lt; TAM; i++) if (m[i][columna] &lt; min) { min = m[i][columna]; *fila = i; }
+    return min;
+}
+int puntoSilla(int m[TAM][TAM], int *fila, int *columna) {
+    int i, hayPS = 0;
+    for (i = 0; i &lt; TAM &amp;&amp; !hayPS; i++) {
+        maximoFila(m, i, columna);          /* columna del maximo de la fila i */
+        minimoColumna(m, *columna, fila);   /* fila del minimo de esa columna */
+        hayPS = (*fila == i);
+    }
+    if (!hayPS) { *fila = -1; *columna = -1; }
+    return hayPS;
+}
+</pre><p>Clave del apartado d: <code>fila</code> y <code>columna</code> llegan como punteros, así que a las funciones auxiliares se pasan directamente (<code>columna</code>) o desreferenciados (<code>*columna</code>) según lo que necesiten.</p></div></details></div>
+<h3 id="t6-auto">Autoevaluación</h3>
+<p class="muted">Responde antes de desplegar.</p><details class="paso"><summary><span class="pn">1</span>Problema tres en raya: <code>chequear_ganador(char t[])</code> con el tablero en t[1..9].</summary><div class="inner"><p>Recorre las 8 líneas ganadoras {1,2,3},{4,5,6},{7,8,9},{1,4,7},{2,5,8},{3,6,9},{1,5,9},{3,5,7}; si las tres casillas son iguales devuelve 1; si queda alguna casilla sin 'X' ni 'O' devuelve −1; si no, 0 (empate).</p></div></details><details class="paso"><summary><span class="pn">2</span>¿Qué imprime <code>int a[5]={1,2,3,4,5}; f1(a); printf(\"%d\",a[2]);</code> con <code>void f1(int *v){v[2]=4;}</code>?</summary><div class="inner"><p>4: el vector se pasa por referencia.</p></div></details><details class="paso"><summary><span class="pn">3</span>Número máximo de comparaciones de la búsqueda binaria en 1000 elementos.</summary><div class="inner"><p>El menor n con \(2^n>1000\): n = 10.</p></div></details><details class="paso"><summary><span class="pn">4</span>Pasa un entero a vector de dígitos (palíndromo).</summary><div class="inner"><p><code>n=0; do { v[n++]=x%10; x/=10; } while(x&gt;0); return n;</code> (el menos significativo queda en v[0]).</p></div></details>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="tema-05.html"><small>← Anterior</small>T5 · Estructuras de control: selección y repetición</a><a class="nx" href="tema-07.html"><small>Siguiente →</small>T7 · Abstracción funcional: funciones, paso de parámetros, recursividad y punteros</a></nav>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (UPCT, GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
+</main>
+</div>
+<script src="app.js"></script>
+<script src="test-data.js"></script>
+<script src="sims.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T2 Estructura del computador y representación de la información · Informática Aplicada · Guía para aprobar</title>
+<meta name="description" content="Informática Aplicada (UPCT, GIEyA): tema 2, Estructura del computador y representación de la información">
+<meta name="theme-color" content="#2456b4">
+<link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none">← Todas las guías GIEyA</a><p class="fecha" style="margin:6px 0 0;max-width:none;font:13px/1.45 system-ui,sans-serif;color:var(--muted)">Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p></div>
+<div class="crumb"><a href="index.html">Informática Aplicada</a><span class="sep">›</span><span>UD1 Sistemas informáticos</span><span class="sep">›</span><span>T2 · Estructura del computador y representación de la información</span></div><a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc"><a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div><a href="index.html#cero" style="--tc:var(--c0)">Empieza aquí desde cero</a><a href="plan.html" style="--tc:var(--c0)">Cómo es la evaluación</a><a href="index.html#progreso" style="--tc:var(--c0)">Tu progreso</a><div class="grp">UD1 Sistemas informáticos</div><a href="tema-01.html" style="--tc:var(--c2)">T1 Introducción a los sistemas informáticos</a><a href="tema-02.html" style="--tc:var(--c3)" class="on" aria-current="page">T2 Estructura del computador y representación de la información</a><div class="grp">UD2 Programación en C</div><a href="tema-03.html" style="--tc:var(--c4)">T3 Programación estructurada y algoritmia</a><a href="tema-04.html" style="--tc:var(--c5)">T4 Tipos de datos primitivos y entrada/salida</a><a href="tema-05.html" style="--tc:var(--c6)">T5 Estructuras de control: selección y repetición</a><a href="tema-06.html" style="--tc:var(--c7)">T6 Tipos estructurados de datos: vectores, matrices y cadenas</a><a href="tema-07.html" style="--tc:var(--c8)">T7 Abstracción funcional: funciones, paso de parámetros, recursividad y punteros</a><div class="grp">UD3 Sistemas operativos y bases de datos</div><a href="tema-08.html" style="--tc:var(--c1)">T8 Conceptos básicos de sistemas operativos</a><a href="tema-09.html" style="--tc:var(--c2)">T9 Bases de datos relacionales y SQL</a><div class="grp">Practicar</div><a href="cuestiones.html" style="--tc:var(--c8)">Teoría de examen: lista cerrada respondida</a><a href="examenes.html" style="--tc:var(--c8)">Problemas de examen resueltos en C</a><a href="problemas.html" style="--tc:var(--c8)">Test de examen y SQL</a><a href="laboratorio.html" style="--tc:var(--c7)">Prácticas</a><a href="formulario.html" style="--tc:var(--c8)">Chuleta C y SQL</a></nav>
+<main>
+<section class="sec tema" style="--tc:var(--c3);--tcs:var(--c3s)">
+<div class="sh"><span aria-hidden="true" class="badge">2</span><div class="shx"><p class="kick">UD1 Sistemas informáticos · Tema 2</p><h2 id="t2">Estructura del computador y representación de la información</h2><div class="tags"><span class="tag">UD1 Sistemas informáticos</span><span class="tag">Teoría (test)</span></div></div></div>
+<div class="zero"><p class="ft">Desde cero</p><p><b>Objetivo:</b> Codificar información en binario, convertir entre bases 2, 8, 10 y 16, representar enteros (signo-magnitud, C1, C2, sesgo), detectar desbordamiento y manejar el estándar IEEE 754.</p><p><b>Necesidad de codificar</b>: el computador solo maneja bits; texto, números, sonido, imágenes e instrucciones son patrones de bits (códigos de E/S como ASCII y Unicode; detección de errores; compresión). Para m símbolos hacen falta n bits con \(2^{n-1}<m\le2^n\), es decir \(n\ge\log_2m=3{,}32\log m\) (10 cifras → 4 bits).</p>
+<p><b>Bases</b>: \(N=\sum a_ib^i\); de decimal a base b por divisiones sucesivas; binario ↔ octal agrupando de 3 en 3 y binario ↔ hexadecimal de 4 en 4 (A3C5H = 1010 0011 1100 0101).</p>
+<p><b>Enteros</b>: sin signo; signo y magnitud (dos ceros, procesamiento distinto); <b>complemento a 1</b> \(C_{B-1,k}(N)=B^k-N-1\) (invertir bits; dos ceros); <b>complemento a 2</b> \(C_{B,k}(N)=B^k-N\): invertir y sumar 1, o copiar hasta el primer 1 e invertir el resto; un solo cero, positivos y negativos se procesan igual; rango con n bits \([-2^{n-1},2^{n-1}-1]\). Sesgado y BCD. <b>Desbordamiento</b>: el resultado no cabe en los bits; con 4 bits en C2, 7 + 1 = 1000 = −8 (el acarreo se pierde y el signo cambia).</p>
+<p><b>IEEE 754</b> (32 bits): 1 bit de signo, 8 de exponente sesgado (sesgo 127, válidos 1-254 ⇒ exponentes −126…127), 23 de mantisa normalizada (1,xxx: el 1 no se guarda). Exponente 0: cero y <b>denormalizados</b> (exponente −126, sin 1 implícito: los más pequeños alrededor de 0); exponente 255: ±∞ (mantisa 0) y NaN. Mayor densidad de números cerca del cero; el normalizado positivo más pequeño es mayor que el denormalizado más grande; no todas las \(2^{32}\) combinaciones son números válidos. Ejemplo: 8,75 = 1000,11 = 1,00011·2³ → 0 10000010 00011000…</p></div>
+<details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 2 <span class="src">5 símbolos</span></summary><div class="inner">
+<div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr><tr><td class="sym">bit, byte</td><td>Unidad mínima; 8 bits</td><td class="u"></td></tr><tr><td class="sym">B, O, H</td><td>Bases 2, 8, 16</td><td class="u"></td></tr><tr><td class="sym">C1, C2</td><td>Complementos a 1 y a 2</td><td class="u">C2: invertir y sumar 1</td></tr><tr><td class="sym">IEEE 754</td><td>1 + 8 + 23 bits</td><td class="u">sesgo 127</td></tr><tr><td class="sym">uma… no: overflow</td><td>Desbordamiento</td><td class="u">el resultado no cabe</td></tr></table></div></div></details>
+<figure class="fig"><p class="ft">Figura interactiva · binario, octal, hexadecimal, complemento a 2 e IEEE 754</p><div data-sim="binario"></div><figcaption>Mueve los controles y lee el recuadro: la figura ejecuta lo mismo que tú trazarías a mano en el examen.</figcaption></figure>
+<h3 id="t2-formulas">Lo que tienes que saber</h3>
+<div class="box key"><ul>
+<li>Decimal → binario: dividir entre 2 y leer restos al revés; fracción: multiplicar por 2 y leer enteros.</li>
+<li>C2 de N con k bits: invertir bits y sumar 1. Valor de un C2: \(-b_{n-1}2^{n-1}+\sum_{i<n-1}b_i2^i\).</li>
+<li>Rango n bits: sin signo \([0,2^n-1]\); C2 \([-2^{n-1},2^{n-1}-1]\); 8 bits: −128…127.</li>
+<li>IEEE 754 simple: \((-1)^s\cdot1{,}m\cdot2^{e-127}\); −12 = −1,1·2³ → 1 10000010 1000…; −3,25 = −1,101·2¹ → 1 10000000 1010….</li>
+<li>Suma binaria: 00111100 + 01100101 = 10100001 (60 + 101 = 161).</li></ul></div>
+<h3 id="t2-metodo">Cómo se resuelve</h3>
+<ol class="steps"><li>Negativo en C2: escribe el positivo con los n bits, invierte y suma 1.</li><li>Leer un C2: si empieza por 1, invierte y suma 1 para obtener el valor absoluto.</li><li>IEEE 754: pasa a binario, normaliza 1,xxx·2ᵉ, suma 127 al exponente, rellena mantisa con ceros hasta 23.</li></ol>
+<div class="box trap"><h4>Trampas típicas</h4><ul><li>Olvidar el +1 en el complemento a 2 (quedándose en C1).</li><li>Sumar el sesgo al revés (restar 127).</li><li>Guardar el 1 implícito en la mantisa.</li></ul></div>
+<h3 id="t2-problema">Problema tipo</h3>
+<div class="prob"><div class="enun"><p class="et">Enunciado</p><p><b>(Test de examen)</b> a) −15 en C2 con 8 bits. b) Valor decimal de 11000001 (C2, 8 bits). c) 33 en binario, octal y hexadecimal. d) −12,0 en IEEE 754. e) Con 4 bits en C2, ¿qué pasa al sumar 1 a +7?</p></div>
+<details class="paso"><summary><span class="pn">✓</span>Ver solución paso a paso</summary><div class="inner"><p>a) 15 = 00001111 → invertir 11110000 → +1 = <b>11110001</b>. b) Empieza por 1: invertir 00111110 +1 = 00111111 = 63 ⇒ <b>−63</b>. c) 33 = <b>100001₂ = 41₈ = 21₁₆</b>. d) 12 = 1100 = 1,1·2³; exponente 3+127 = 130 = 10000010; signo 1 ⇒ <b>1 10000010 10000000000000000000000</b>. e) 0111 + 1 = 1000 = <b>−8</b>: desbordamiento.</p></div></details></div>
+<h3 id="t2-auto">Autoevaluación</h3>
+<p class="muted">Responde antes de desplegar.</p><details class="paso"><summary><span class="pn">1</span>¿Cuántos bits para codificar 100 símbolos?</summary><div class="inner"><p>\(2^6=64<100\le128=2^7\): 7 bits.</p></div></details><details class="paso"><summary><span class="pn">2</span>−3,25 en IEEE 754.</summary><div class="inner"><p>3,25 = 11,01 = 1,101·2¹; exponente 128 = 10000000 ⇒ 1 10000000 10100000000000000000000.</p></div></details><details class="paso"><summary><span class="pn">3</span>¿Qué cantidad define el complemento a 2 de N con k bits?</summary><div class="inner"><p>La que le falta a N para llegar a \(2^k\) (un 1 seguido de k ceros): \(C_{2,k}(N)=2^k-N\).</p></div></details><details class="paso"><summary><span class="pn">4</span>Pasa 10001011001011 a hexadecimal.</summary><div class="inner"><p>Agrupar de 4 desde la derecha: 0010 0010 1100 1011 = 22CB.</p></div></details>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="tema-01.html"><small>← Anterior</small>T1 · Introducción a los sistemas informáticos</a><a class="nx" href="tema-03.html"><small>Siguiente →</small>T3 · Programación estructurada y algoritmia</a></nav>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (UPCT, GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
+</main>
+</div>
+<script src="app.js"></script>
+<script src="test-data.js"></script>
+<script src="sims.js"></script>
+</body>
+</html>

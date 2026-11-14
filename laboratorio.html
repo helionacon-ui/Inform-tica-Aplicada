@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prácticas · Informática Aplicada · Guía para aprobar</title>
+<meta name="description" content="Prácticas de Informática Aplicada (UPCT, GIEyA)">
+<meta name="theme-color" content="#2456b4">
+<link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<link rel="stylesheet" href="style.css">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="hub-bar" style="max-width:1180px;margin:0 auto;padding:10px 16px 0"><a href="https://helionacon-ui.github.io/GIEIA-UPCT/" style="display:inline-flex;align-items:center;gap:6px;font:600 13.5px/1 system-ui,sans-serif;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none">← Todas las guías GIEyA</a><p class="fecha" style="margin:6px 0 0;max-width:none;font:13px/1.45 system-ui,sans-serif;color:var(--muted)">Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p></div>
+<div class="crumb"><a href="index.html">Informática Aplicada</a><span class="sep">›</span><span>Practicar</span><span class="sep">›</span><span>Prácticas</span></div><a href="#top" class="totop" id="totop" aria-label="Volver arriba">↑</a>
+<div class="wrap" id="top">
+<nav aria-label="Índice" class="toc"><a href="index.html" style="--tc:var(--c0)">Portada</a><div class="grp">Empezar</div><a href="index.html#cero" style="--tc:var(--c0)">Empieza aquí desde cero</a><a href="plan.html" style="--tc:var(--c0)">Cómo es la evaluación</a><a href="index.html#progreso" style="--tc:var(--c0)">Tu progreso</a><div class="grp">UD1 Sistemas informáticos</div><a href="tema-01.html" style="--tc:var(--c2)">T1 Introducción a los sistemas informáticos</a><a href="tema-02.html" style="--tc:var(--c3)">T2 Estructura del computador y representación de la información</a><div class="grp">UD2 Programación en C</div><a href="tema-03.html" style="--tc:var(--c4)">T3 Programación estructurada y algoritmia</a><a href="tema-04.html" style="--tc:var(--c5)">T4 Tipos de datos primitivos y entrada/salida</a><a href="tema-05.html" style="--tc:var(--c6)">T5 Estructuras de control: selección y repetición</a><a href="tema-06.html" style="--tc:var(--c7)">T6 Tipos estructurados de datos: vectores, matrices y cadenas</a><a href="tema-07.html" style="--tc:var(--c8)">T7 Abstracción funcional: funciones, paso de parámetros, recursividad y punteros</a><div class="grp">UD3 Sistemas operativos y bases de datos</div><a href="tema-08.html" style="--tc:var(--c1)">T8 Conceptos básicos de sistemas operativos</a><a href="tema-09.html" style="--tc:var(--c2)">T9 Bases de datos relacionales y SQL</a><div class="grp">Practicar</div><a href="cuestiones.html" style="--tc:var(--c8)">Teoría de examen: lista cerrada respondida</a><a href="examenes.html" style="--tc:var(--c8)">Problemas de examen resueltos en C</a><a href="problemas.html" style="--tc:var(--c8)">Test de examen y SQL</a><a href="laboratorio.html" style="--tc:var(--c7)" class="on" aria-current="page">Prácticas</a><a href="formulario.html" style="--tc:var(--c8)">Chuleta C y SQL</a></nav>
+<main>
+<section class="sec" style="--tc:var(--c7);--tcs:var(--c7s)">
+<div class="sh"><span aria-hidden="true" class="badge">Lab</span><div class="shx"><p class="kick">Practicar</p><h2 id="lab">Prácticas</h2><div class="tags"><span class="tag">20 % de la nota</span><span class="tag w">Asistencia obligatoria</span></div></div></div>
+<h3>Sesiones y evaluación de prácticas</h3><p>Diez sesiones en aula de informática, <b>asistencia obligatoria</b>: P1 entorno de programación (compiladores e intérpretes: Code::Blocks / Dev-C++), P2 tipos de datos y E/S (1), condiciones (2), bucles y vectores (3), bucles avanzados (4); P3 funciones básicas (1), funciones avanzadas (2), estructuras y punteros (3); más dos sesiones de SQLite (introducción y BD fábrica/ciclismo). APTO = asistencia (las 10 sesiones; faltas recuperables en otros grupos, ≤ 3 no justificadas) + aprovechamiento (extensiones de los problemas en la última sesión, subidas a Moodle); se guarda dos cursos y es recuperable el día del examen. Convención de nombres: P_2_1_1_hello (práctica 2, sesión 1, ejercicio 1).</p><h3>Hilo conductor: la fábrica</h3><p>Los boletines siguen el ejemplo de una fábrica: cálculo de producción y costes con tipos y printf/scanf; decisiones de stock con if/switch; recorridos de almacén con bucles y vectores; informes con funciones; y la base de datos <code>fabrica.db</code> en SQLite (tablas de piezas y proveedores) para practicar SELECT, JOIN y agregados desde el gestor <b>DB Browser for SQLite</b> o sqlite3. La práctica de BD «empadronamiento» (con solución) y la de ciclismo son los modelos del examen.</p><h3>Qué llevar preparado al aprovechamiento</h3><p>Saber de memoria: patrón menú (do-while + switch), patrón validación (do-while), recorrido y búsqueda en vector con bandera, burbuja, funciones con resultados por referencia (&amp; en la llamada, * dentro), y en SQL: SELECT-FROM-WHERE con join por claves, NOT IN para «sin», subconsulta con MAX/AVG y GROUP BY para «cuántos por cada». Son exactamente las piezas con las que se montan los problemas del examen.</p>
+<figure class="fig"><p class="ft">Figura interactiva · consultas SQL con resultado real</p><div data-sim="sql"></div><figcaption>La misma mecánica que la práctica de SQLite: predice el resultado antes de cambiar de consulta.</figcaption></figure>
+<div class="box trap"><h4>Trampas del aprovechamiento</h4><ul><li>Olvidar el espacio en <code>scanf(" %c", …)</code> y que el programa «se salte» la lectura.</li><li>No probar el programa con datos límite (0, negativos, el centinela).</li><li>En SQLite, escribir el WHERE antes del FROM o comparar texto sin comillas.</li></ul></div>
+</section>
+<nav class="pager" aria-label="Páginas"><a href="problemas.html"><small>← Anterior</small>Test y SQL</a><a class="nx" href="formulario.html"><small>Siguiente →</small>Chuleta C y SQL</a></nav><p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (UPCT, GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
+</main>
+</div>
+<script src="app.js"></script>
+<script src="test-data.js"></script>
+<script src="sims.js"></script>
+</body>
+</html>
