@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>T9 Bases de datos relacionales y SQL · Informática Aplicada · Guía para aprobar</title>
-<meta name="description" content="Informática Aplicada (UPCT, GIEyA): tema 9, Bases de datos relacionales y SQL">
+<meta name="description" content="Informática Aplicada (GIEyA): tema 9, Bases de datos relacionales y SQL">
 <meta name="theme-color" content="#2456b4">
 <link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@ Zulle</pre><p>Para «los que no…» no sirve un join sencillo (solo mostraría 
 <p class="muted">Responde antes de desplegar.</p><details class="paso"><summary><span class="pn">1</span>Definición y utilidad de las claves primaria y ajena.</summary><div class="inner"><p>Primaria: conjunto mínimo de atributos que identifica unívocamente cada tupla (no nulos, únicos). Ajena: atributos de una tabla que son clave primaria de otra y establecen la asociación; su integridad referencial la comprueba el SGBD. En SQL: PRIMARY KEY y FOREIGN KEY … REFERENCES.</p></div></details><details class="paso"><summary><span class="pn">2</span>Prácticas ciclismo: etapas que tienen algún puerto, de tres formas.</summary><div class="inner"><p>Join <code>FROM etapa E, puerto P WHERE P.netapa = E.netapa</code> con DISTINCT; <code>WHERE netapa IN (SELECT netapa FROM puerto)</code>; <code>WHERE EXISTS (SELECT * FROM puerto P WHERE P.netapa = E.netapa)</code>.</p></div></details><details class="paso"><summary><span class="pn">3</span>Test: para ver porciones distintas de la BD por usuario se trabaja en el nivel…</summary><div class="inner"><p>Externo (vistas).</p></div></details><details class="paso"><summary><span class="pn">4</span>Test: ¿qué sentencia es válida para las piezas rojas de peso > 10?</summary><div class="inner"><p><code>SELECT * FROM PIEZAS WHERE color='rojo' AND peso&gt;10</code>.</p></div></details><details class="paso"><summary><span class="pn">5</span>Elementos básicos del diagrama entidad-relación.</summary><div class="inner"><p>Entidades, atributos (con identificador), relaciones con cardinalidad y restricciones sobre atributos, entidades y relaciones. Propuesto por Chen en 1976; es gráfico y no tiene lenguaje de manipulación.</p></div></details>
 </section>
 <nav class="pager" aria-label="Páginas"><a href="tema-08.html"><small>← Anterior</small>T8 · Conceptos básicos de sistemas operativos</a><a class="nx" href="cuestiones.html"><small>Siguiente →</small>Teoría de examen</a></nav>
-<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (UPCT, GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
 </main>
 </div>
 <script src="app.js"></script>

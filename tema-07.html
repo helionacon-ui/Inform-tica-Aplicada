@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>T7 Abstracción funcional: funciones, paso de parámetros, recursividad y punteros · Informática Aplicada · Guía para aprobar</title>
-<meta name="description" content="Informática Aplicada (UPCT, GIEyA): tema 7, Abstracción funcional: funciones, paso de parámetros, recursividad y punteros">
+<meta name="description" content="Informática Aplicada (GIEyA): tema 7, Abstracción funcional: funciones, paso de parámetros, recursividad y punteros">
 <meta name="theme-color" content="#2456b4">
 <link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -117,7 +117,7 @@ printf("a=%d v1=%d *q=%d", a, v[1], *q);</pre></div><details class="paso"><summa
 <p class="muted">Responde antes de desplegar.</p><details class="paso"><summary><span class="pn">1</span>¿Qué imprime <code>fun1(&amp;v1,v2)</code> con <code>void fun1(int *v1,int v2){*v1=30; v2=50;}</code> si v1=10, v2=20?</summary><div class="inner"><p>v1=30, v2=20: v1 va por referencia y v2 por valor.</p></div></details><details class="paso"><summary><span class="pn">2</span>Test: ¿qué llamada hace que b valga 3.0 con <code>void f1(double *b,int c){*b*=c;}</code>, b=1.5, a[5]={1,2,3,4,5}?</summary><div class="inner"><p><code>f1(&amp;b, a[1]);</code> (1.5 × 2).</p></div></details><details class="paso"><summary><span class="pn">3</span>Registro de activación: ¿qué afirmación es falsa?</summary><div class="inner"><p>Que se almacena en el montículo: se apila en la pila (stack) en cada llamada y se desapila al terminar; guarda parámetros, dirección de retorno, locales y punteros al invocador; puede agotar la pila con recursiones profundas.</p></div></details><details class="paso"><summary><span class="pn">4</span>Escribe <code>int suma_digitos(int n)</code> recursiva.</summary><div class="inner"><p><code>if (n &lt; 10) return n; return n%10 + suma_digitos(n/10);</code></p></div></details><details class="paso"><summary><span class="pn">5</span>Diferencia entre parámetros formales y reales.</summary><div class="inner"><p>Formales: los de la declaración/definición; reales: los de la llamada. Deben coincidir en número, tipo y orden.</p></div></details>
 </section>
 <nav class="pager" aria-label="Páginas"><a href="tema-06.html"><small>← Anterior</small>T6 · Tipos estructurados de datos: vectores, matrices y cadenas</a><a class="nx" href="tema-08.html"><small>Siguiente →</small>T8 · Conceptos básicos de sistemas operativos</a></nav>
-<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (UPCT, GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
 </main>
 </div>
 <script src="app.js"></script>

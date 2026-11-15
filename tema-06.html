@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>T6 Tipos estructurados de datos: vectores, matrices y cadenas · Informática Aplicada · Guía para aprobar</title>
-<meta name="description" content="Informática Aplicada (UPCT, GIEyA): tema 6, Tipos estructurados de datos: vectores, matrices y cadenas">
+<meta name="description" content="Informática Aplicada (GIEyA): tema 6, Tipos estructurados de datos: vectores, matrices y cadenas">
 <meta name="theme-color" content="#2456b4">
 <link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -92,7 +92,7 @@ r[n] = '\0';</pre></div><details class="paso"><summary><span class="pn">✓</spa
 <p class="muted">Responde antes de desplegar.</p><details class="paso"><summary><span class="pn">1</span>Problema tres en raya: <code>chequear_ganador(char t[])</code> con el tablero en t[1..9].</summary><div class="inner"><p>Recorre las 8 líneas ganadoras {1,2,3},{4,5,6},{7,8,9},{1,4,7},{2,5,8},{3,6,9},{1,5,9},{3,5,7}; si las tres casillas son iguales devuelve 1; si queda alguna casilla sin 'X' ni 'O' devuelve −1; si no, 0 (empate).</p></div></details><details class="paso"><summary><span class="pn">2</span>¿Qué imprime <code>int a[5]={1,2,3,4,5}; f1(a); printf(\"%d\",a[2]);</code> con <code>void f1(int *v){v[2]=4;}</code>?</summary><div class="inner"><p>4: el vector se pasa por referencia.</p></div></details><details class="paso"><summary><span class="pn">3</span>Número máximo de comparaciones de la búsqueda binaria en 1000 elementos.</summary><div class="inner"><p>El menor n con \(2^n>1000\): n = 10.</p></div></details><details class="paso"><summary><span class="pn">4</span>Pasa un entero a vector de dígitos (palíndromo).</summary><div class="inner"><p><code>n=0; do { v[n++]=x%10; x/=10; } while(x&gt;0); return n;</code> (el menos significativo queda en v[0]).</p></div></details>
 </section>
 <nav class="pager" aria-label="Páginas"><a href="tema-05.html"><small>← Anterior</small>T5 · Estructuras de control: selección y repetición</a><a class="nx" href="tema-07.html"><small>Siguiente →</small>T7 · Abstracción funcional: funciones, paso de parámetros, recursividad y punteros</a></nav>
-<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (UPCT, GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
 </main>
 </div>
 <script src="app.js"></script>

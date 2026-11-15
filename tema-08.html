@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>T8 Conceptos básicos de sistemas operativos · Informática Aplicada · Guía para aprobar</title>
-<meta name="description" content="Informática Aplicada (UPCT, GIEyA): tema 8, Conceptos básicos de sistemas operativos">
+<meta name="description" content="Informática Aplicada (GIEyA): tema 8, Conceptos básicos de sistemas operativos">
 <meta name="theme-color" content="#2456b4">
 <link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
 <p class="muted">Responde antes de desplegar.</p><details class="paso"><summary><span class="pn">1</span>Características y utilidad de la BIOS.</summary><div class="inner"><p>Primera interfaz con el hardware; describe qué tiene el ordenador; ejecuta autodiagnóstico y cargador de arranque; almacena configuración y fecha en CMOS alimentada por pila; define parámetros que afectan al rendimiento.</p></div></details><details class="paso"><summary><span class="pn">2</span>La memoria virtual y el principio de localidad.</summary><div class="inner"><p>Último escalón de la jerarquía: parte del disco amplía la RAM a costa de velocidad, con segmentación/paginación y algoritmos de sustitución (la menos usada recientemente, la más antigua). Localidad: la información más probable de usarse es la cercana en direcciones (espacial) y la recién usada (temporal); por eso la caché y la paginación aciertan.</p></div></details><details class="paso"><summary><span class="pn">3</span>Gestión de la E/S: sondeo frente a interrupciones.</summary><div class="inner"><p>Sondeo: la CPU consulta continuamente el estado del periférico (espera activa, desperdicio). Interrupciones: el periférico avisa; la CPU guarda el estado, ejecuta la rutina de servicio y continúa; permite atender periféricos lentos sin bloquear la CPU.</p></div></details><details class="paso"><summary><span class="pn">4</span>Gestión de procesos.</summary><div class="inner"><p>Proceso = programa en ejecución (parte estática + estado dinámico). El planificador reparte la CPU entre procesos (prioridades, turnos rotatorios, con/sin expulsión) y salva/restaura su estado, dando a cada uno la ilusión de una CPU dedicada.</p></div></details>
 </section>
 <nav class="pager" aria-label="Páginas"><a href="tema-07.html"><small>← Anterior</small>T7 · Abstracción funcional: funciones, paso de parámetros, recursividad y punteros</a><a class="nx" href="tema-09.html"><small>Siguiente →</small>T9 · Bases de datos relacionales y SQL</a></nav>
-<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (UPCT, GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
+<p class="inicio" style="margin:36px 0 8px;text-align:center;font-size:13px;color:var(--muted)">Guía no oficial de Informática Aplicada (GIEyA) · Datos tomados en el curso <time datetime="2021-09">2021/22</time> (apuntes y exámenes) · página creada en noviembre de 2026</p>
 </main>
 </div>
 <script src="app.js"></script>
