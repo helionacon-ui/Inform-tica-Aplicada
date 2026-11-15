@@ -217,5 +217,43 @@ SIMS.testexamen=el=>{el.classList.add('sim-box');paleta(el);
       out.querySelector('.qn').onclick=()=>{delete out.dataset.done;idx++;show();};});}
   show();};
 
+/* ---- Decimal a binario por divisiones sucesivas paso a paso (45 → 101101) ---- */
+SIMS.binarioPaso=el=>build(el,{w:640,h:380,
+ sliders:[{k:'paso',v:0,min:0,max:7,step:1,l:'paso de la conversión (0 = número)',u:''}],
+ draw(a){a.clear();const p=a.st.paso;
+  const K={hl:'#b8730c',bit:'#2c8a52',mut:'#9aa3b5'};
+  const rows=[[45,22,1],[22,11,0],[11,5,1],[5,2,1],[2,1,0],[1,0,1]];
+  const cols={d:110,q:250,r:390};
+  a.txt('Dividendo',cols.d,80,C.muted,13,'center');
+  a.txt('÷ 2 = cociente',cols.q,80,C.muted,13,'center');
+  a.txt('Resto',cols.r,80,C.muted,13,'center');
+  rows.forEach(([d,q,r],i)=>{
+    if(p<i+1) return;
+    const y=110+i*38;
+    const cur=(p===i+1);
+    if(cur){a.g.fillStyle=K.hl;a.g.globalAlpha=0.15;a.g.fillRect(40,y-22,500,34);a.g.globalAlpha=1;}
+    a.txt(String(d),cols.d,y,C.text,17,'center');
+    a.txt(`${q}`,cols.q,y,C.text,17,'center');
+    a.txt(String(r),cols.r,y,r?K.bit:C.muted,17,'center');
+  });
+  // bits leídos de abajo arriba
+  if(p>=7){
+    a.arrow(580,300,580,120,K.bit,2.5);
+    a.txt('restos de abajo arriba',580,100,K.bit,12,'center');
+    a.txt('101101₂',580,340,K.bit,18,'center');
+  }
+  const T=[
+   'Queremos pasar 45 a binario. Dividimos sucesivamente entre 2 y guardamos cada resto; el cociente se usa en la división siguiente.',
+   '45 : 2 = 22, con resto 1.',
+   '22 : 2 = 11, con resto 0.',
+   '11 : 2 = 5, con resto 1.',
+   '5 : 2 = 2, con resto 1.',
+   '2 : 2 = 1, con resto 0.',
+   '1 : 2 = 0, con resto 1. El cociente llega a 0, así que paramos.',
+   'Se leen los restos de abajo arriba: el último resto es el bit de mayor peso. 101101₂ = 32 + 8 + 4 + 1 = 45 ✓.'
+  ];
+  a.html(`<div>${T[p]}</div>`);
+ }});
+
 document.querySelectorAll('[data-sim]').forEach(el=>{const f=SIMS[el.dataset.sim];if(f)f(el);});
 })();

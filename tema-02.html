@@ -40,6 +40,10 @@
 <h3 id="t2-metodo">Cómo se resuelve</h3>
 <ol class="steps"><li>Negativo en C2: escribe el positivo con los n bits, invierte y suma 1.</li><li>Leer un C2: si empieza por 1, invierte y suma 1 para obtener el valor absoluto.</li><li>IEEE 754: pasa a binario, normaliza 1,xxx·2ᵉ, suma 127 al exponente, rellena mantisa con ceros hasta 23.</li></ol>
 <div class="box trap"><h4>Trampas típicas</h4><ul><li>Olvidar el +1 en el complemento a 2 (quedándose en C1).</li><li>Sumar el sesgo al revés (restar 127).</li><li>Guardar el 1 implícito en la mantisa.</li></ul></div>
+<h3 id="t2-divisiones">Decimal a binario paso a paso</h3>
+<p>El método de las divisiones sucesivas convierte un entero decimal a binario: se divide entre 2 hasta llegar a cociente 0 y los restos, leídos de abajo arriba, son los bits.</p>
+<figure class="fig"><p class="ft">Figura interactiva · 45 en binario por divisiones sucesivas</p><div data-sim="binarioPaso"></div><figcaption>Cada paso hace una división y apunta su resto. Al final se lee la columna de restos de abajo arriba.</figcaption></figure>
+<div class="box trap"><h4>Trampas típicas</h4><ul><li>Leer los restos de arriba abajo: el primer resto es el bit menos significativo.</li><li>Parar antes de que el cociente sea 0 y olvidar el último resto.</li><li>Confundir la división entera con la real: en esta conversión el cociente es entero.</li></ul></div>
 <h3 id="t2-problema">Problema tipo</h3>
 <div class="prob"><div class="enun"><p class="et">Enunciado</p><p><b>(Test de examen)</b> a) −15 en C2 con 8 bits. b) Valor decimal de 11000001 (C2, 8 bits). c) 33 en binario, octal y hexadecimal. d) −12,0 en IEEE 754. e) Con 4 bits en C2, ¿qué pasa al sumar 1 a +7?</p></div>
 <details class="paso"><summary><span class="pn">✓</span>Ver solución paso a paso</summary><div class="inner"><p>a) 15 = 00001111 → invertir 11110000 → +1 = <b>11110001</b>. b) Empieza por 1: invertir 00111110 +1 = 00111111 = 63 ⇒ <b>−63</b>. c) 33 = <b>100001₂ = 41₈ = 21₁₆</b>. d) 12 = 1100 = 1,1·2³; exponente 3+127 = 130 = 10000010; signo 1 ⇒ <b>1 10000010 10000000000000000000000</b>. e) 0111 + 1 = 1000 = <b>−8</b>: desbordamiento.</p></div></details></div>
