@@ -255,5 +255,25 @@ SIMS.binarioPaso=el=>build(el,{w:640,h:380,
   a.html(`<div>${T[p]}</div>`);
  }});
 
+
+/* ---- paso a paso declarativo ---- */
+SIMS.__paso=(el,D)=>build(el,{w:D.w||660,h:D.h||340,
+ sliders:[{k:'paso',v:0,min:0,max:D.steps.length,step:1,l:'paso de la resolución (0 = enunciado)',u:''}],
+ draw(a){a.clear();const g=a.g,p=a.st.paso;
+  const it=(x,col)=>{const k=x[0];
+   if(k==='t')a.txt(x[1],x[2],x[3],col,x[4]||13,x[5]||'left');
+   else if(k==='l')a.line(x[1],x[2],x[3],x[4],col,x[5]||1.5,x[6]);
+   else if(k==='a')a.arrow(x[1],x[2],x[3],x[4],col,x[5]);
+   else if(k==='c')a.circ(x[1],x[2],x[3],col,!!x[4]);
+   else if(k==='r'){g.strokeStyle=col;g.lineWidth=1.8;if(x[5]){g.fillStyle=col;g.globalAlpha=.18;g.fillRect(x[1],x[2],x[3],x[4]);g.globalAlpha=1;}g.strokeRect(x[1],x[2],x[3],x[4]);}
+   else if(k==='p'){g.strokeStyle=col;g.lineWidth=x[2]||2;g.beginPath();x[1].forEach((q,i)=>i?g.lineTo(q[0],q[1]):g.moveTo(q[0],q[1]));g.stroke();}};
+  (D.base||[]).forEach(x=>it(x,C.muted));
+  D.steps.forEach((s,i)=>{if(i+1>p)return;const cur=(i+1===p);(s.add||[]).forEach(x=>it(x,cur?C.d:C.text));if(cur)(s.now||[]).forEach(x=>it(x,C.d));});
+  a.html('<div>'+(p===0?D.q:D.steps[p-1].text)+'</div>');}});
+/* ---- fin paso a paso declarativo ---- */
+
+/* ---- paso2 binarioPaso ---- */
+SIMS.binarioPaso=el=>SIMS.__paso(el,{"w":640,"h":285,"q":"Convierte 156 a binario de 8 bits y a hexadecimal, y explica qué número es ese patrón en complemento a 2. Sube el paso.","base":[["t","Representación binaria de 8 bits",30,26,14,"left"]],"steps":[{"text":"Se quiere representar el número <b>156</b> en binario (8 bits), pasarlo a hexadecimal y ver qué significa ese mismo patrón de bits en <b>complemento a 2</b>.","add":[]},{"text":"Se restan pesos de potencias de 2 de mayor a menor: 156 ≥ 128 → <b>1</b> (resta 28); 28 &lt; 64 → <b>0</b>; 28 &lt; 32 → <b>0</b>; 28 ≥ 16 → <b>1</b> (resta 12); 12 ≥ 8 → <b>1</b> (resta 4); 4 ≥ 4 → <b>1</b>; 0 → <b>0</b>, <b>0</b>.","add":[["t","156 = 128 + 16 + 8 + 4",30,64,15,"left"],["r",300,90,30,30,1],["t","1",315,111,15,"center"],["r",334,90,30,30,0],["t","0",349,111,15,"center"],["r",368,90,30,30,0],["t","0",383,111,15,"center"],["r",402,90,30,30,1],["t","1",417,111,15,"center"],["r",436,90,30,30,1],["t","1",451,111,15,"center"],["r",470,90,30,30,1],["t","1",485,111,15,"center"],["r",504,90,30,30,0],["t","0",519,111,15,"center"],["r",538,90,30,30,0],["t","0",553,111,15,"center"]]},{"text":"Resultado: <b>156₁₀ = 10011100₂</b>. Los pesos de las posiciones con 1 son 128, 16, 8 y 4 y suman 156 ✓.","add":[["t","pesos:  128   64   32   16   8   4   2   1",300,150,11,"left"]]},{"text":"A <b>hexadecimal</b> se agrupan los bits de 4 en 4: 1001 = 9 y 1100 = 12 = C. Por tanto <b>156 = 0x9C</b>.","add":[["t","1001 | 1100  =  9 | C  =  0x9C",30,182,15,"left"]]},{"text":"Si ese mismo patrón se interpreta en <b>complemento a 2</b>, el bit más significativo (1) indica negativo: valor = 156 − 256 = <b>−100</b>. El mismo byte es 156 sin signo o −100 con signo.","add":[["t","C2: 10011100 = 156 − 256 = −100",30,216,15,"left"]]},{"text":"Comprobación: el opuesto de 100 en C2 se obtiene invirtiendo y sumando 1: 100 = 01100100 → 10011011 + 1 = <b>10011100</b> ✓. Con 8 bits el rango en C2 es de −128 a +127.","add":[["t","rango C2 (8 bits): −128 … +127",30,250,14,"left"]]}]});
+/* ---- fin paso2 binarioPaso ---- */
 document.querySelectorAll('[data-sim]').forEach(el=>{const f=SIMS[el.dataset.sim];if(f)f(el);});
 })();
