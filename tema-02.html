@@ -17,24 +17,64 @@
 <style id="lectura">
 @media screen{
 :root{--body:"Atkinson Hyperlegible Next","Atkinson Hyperlegible","Segoe UI",system-ui,-apple-system,sans-serif}
-body{font-family:var(--body);font-size:20.5px;line-height:2.1;letter-spacing:.022em;word-spacing:.09em}
-p{margin:0 0 1.75em}
-li{margin:.8em 0}
-p,li{max-width:62ch}
+body{font-family:var(--body);font-size:20px;line-height:1.95;letter-spacing:.014em;word-spacing:.05em}
+p{margin:0 0 1.5em;max-width:64ch;hyphens:auto;-webkit-hyphens:auto}
+li{margin:.72em 0;max-width:64ch}
 .box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
-h2{margin-top:92px;margin-bottom:24px;line-height:1.3}
-h3{font-size:24px;margin:58px 0 18px;line-height:1.35}
-h4{margin-top:34px;margin-bottom:10px}
-.box{padding:24px 30px;margin:32px 0}
-table{font-size:18px;line-height:1.75}
-td,th{padding-top:.85em;padding-bottom:.85em}
-figure.fig figcaption{font-size:17px;line-height:1.8;margin-top:12px}
+h2{margin-top:92px;margin-bottom:22px;line-height:1.25}
+h3{font-size:25px;margin:66px 0 20px;line-height:1.3}
+h4{margin:38px 0 12px;line-height:1.4}
+/* ---- entradilla con capitular ---- */
+.zero .lede{font-size:1.05em;line-height:1.86;text-align:left}
+.zero .lede::first-letter{float:left;font-size:3.05em;line-height:.84;font-weight:700;padding:.06em .14em 0 0;color:var(--tc,var(--accent))}
+/* ---- sumario del tema ---- */
+p.obj{max-width:none;text-align:left;margin:0 0 1.7em;padding:14px 20px;border-radius:10px;
+ background:color-mix(in srgb,var(--surface) 62%,transparent);
+ border-left:3px solid var(--tc,var(--accent));font-size:.95em;line-height:1.75}
+p.obj>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);letter-spacing:.1em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- términos con entrada, al modo de un manual ---- */
+p.run{margin:0 0 1.38em}
+p.run>b:first-child{display:block;font:700 12px/1.7 var(--mono,monospace);letter-spacing:.09em;
+ text-transform:uppercase;color:var(--tc,var(--accent))}
+/* ---- rótulos internos ---- */
+.zero>.ft{font:700 11.5px/1.6 var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase}
+.zero>.ft:not(:first-child){margin-top:2em;font-size:12.5px;color:var(--fg);opacity:.72}
+/* ---- desarrollo teórico ---- */
+.deep h4{position:relative;padding-left:2.35em;font-size:1.03em}
+.deep h4 .hn{position:absolute;left:0;top:.06em;font:700 .84em/1.7 var(--mono,monospace);
+ color:var(--tc,var(--accent));opacity:.8}
+.deep>h4:not(:first-child){border-top:1px solid var(--line);padding-top:30px;margin-top:42px}
+.eqd{margin:1.65em 0;text-align:center;overflow-x:auto;overflow-y:hidden}
+/* ---- notas al margen, sin duplicar el rótulo ---- */
+.box.deepnote{padding:15px 20px;margin:1.5em 0;border-radius:0 10px 10px 0;
+ background:color-mix(in srgb,var(--surface) 76%,transparent)}
+.box.key.deepnote::before,.box.trap.deepnote::before{content:none}
+.box.deepnote>b:first-child{display:block;font:700 11.5px/1.7 var(--mono,monospace);
+ letter-spacing:.1em;text-transform:uppercase;color:var(--tc,var(--accent))}
+.box.trap.deepnote>b:first-child{color:var(--warn)}
+/* ---- resto ---- */
+.box{padding:22px 28px;margin:30px 0}
+table{font-size:18px;line-height:1.7}
+td,th{padding-top:.8em;padding-bottom:.8em}
+figure.fig figcaption{font-size:17px;line-height:1.78;margin-top:12px}
 figure.fig{margin-block:34px}
-.lede{line-height:1.85}
 .toc a{font-size:15.5px;padding:8px 0 8px 10px}
 svg,svg text,canvas,.katex,mjx-container{letter-spacing:normal;word-spacing:normal}
+mjx-container[display]{margin:0!important}
 details>summary{line-height:1.7;padding-block:.5em}
-@media (max-width:600px){body{font-size:19px;line-height:2}}
+.enun p,.inner p{text-align:left}
+@media (min-width:1040px){
+p,li{text-align:justify}
+.zero .lede,.enun p,.inner p,figcaption,.ft{text-align:left}
+}
+@media (max-width:600px){
+body{font-size:18.5px;line-height:1.9}
+p{text-align:left}
+.zero .lede::first-letter{font-size:2.6em}
+.deep h4{padding-left:0}
+.deep h4 .hn{position:static;margin-right:.5em}
+}
 }
 </style>
 </head>
@@ -46,23 +86,23 @@ details>summary{line-height:1.7;padding-block:.5em}
 <main>
 <section class="sec tema" style="--tc:var(--c3);--tcs:var(--c3s)">
 <div class="sh"><span aria-hidden="true" class="badge">2</span><div class="shx"><p class="kick">UD1 Sistemas informáticos · Tema 2</p><h2 id="t2">Estructura del computador y representación de la información</h2><div class="tags"><span class="tag">UD1 Sistemas informáticos</span><span class="tag">Teoría (test)</span></div></div></div>
-<div class="zero"><p class="ft">Desde cero</p><p><b>Objetivo:</b> Codificar información en binario, convertir entre bases 2, 8, 10 y 16, representar enteros (signo-magnitud, C1, C2, sesgo), detectar desbordamiento y manejar el estándar IEEE 754.</p><p><b>Necesidad de codificar</b>: el computador solo maneja bits; texto, números, sonido, imágenes e instrucciones son patrones de bits (códigos de E/S como ASCII y Unicode; detección de errores; compresión). Para m símbolos hacen falta n bits con \(2^{n-1}<m\le2^n\), es decir \(n\ge\log_2m=3{,}32\log m\) (10 cifras → 4 bits).</p>
-<p><b>Bases</b>: \(N=\sum a_ib^i\); de decimal a base b por divisiones sucesivas; binario ↔ octal agrupando de 3 en 3 y binario ↔ hexadecimal de 4 en 4 (A3C5H = 1010 0011 1100 0101).</p>
-<p><b>Enteros</b>: sin signo; signo y magnitud (dos ceros, procesamiento distinto); <b>complemento a 1</b> \(C_{B-1,k}(N)=B^k-N-1\) (invertir bits; dos ceros); <b>complemento a 2</b> \(C_{B,k}(N)=B^k-N\): invertir y sumar 1, o copiar hasta el primer 1 e invertir el resto; un solo cero, positivos y negativos se procesan igual; rango con n bits \([-2^{n-1},2^{n-1}-1]\). Sesgado y BCD. <b>Desbordamiento</b>: el resultado no cabe en los bits; con 4 bits en C2, 7 + 1 = 1000 = −8 (el acarreo se pierde y el signo cambia).</p>
-<p><b>IEEE 754</b> (32 bits): 1 bit de signo, 8 de exponente sesgado (sesgo 127, válidos 1-254 ⇒ exponentes −126…127), 23 de mantisa normalizada (1,xxx: el 1 no se guarda). Exponente 0: cero y <b>denormalizados</b> (exponente −126, sin 1 implícito: los más pequeños alrededor de 0); exponente 255: ±∞ (mantisa 0) y NaN. Mayor densidad de números cerca del cero; el normalizado positivo más pequeño es mayor que el denormalizado más grande; no todas las \(2^{32}\) combinaciones son números válidos. Ejemplo: 8,75 = 1000,11 = 1,00011·2³ → 0 10000010 00011000…</p></div>
+<div class="zero"><p class="ft">Desde cero</p><p class="obj"><b>Objetivo:</b> Codificar información en binario, convertir entre bases 2, 8, 10 y 16, representar enteros (signo-magnitud, C1, C2, sesgo), detectar desbordamiento y manejar el estándar IEEE 754.</p><p class="run"><b>Necesidad de codificar:</b> el computador solo maneja bits; texto, números, sonido, imágenes e instrucciones son patrones de bits (códigos de E/S como ASCII y Unicode; detección de errores; compresión). Para m símbolos hacen falta n bits con \(2^{n-1}<m\le2^n\), es decir \(n\ge\log_2m=3{,}32\log m\) (10 cifras → 4 bits).</p>
+<p class="run"><b>Bases:</b> \(N=\sum a_ib^i\); de decimal a base b por divisiones sucesivas; binario ↔ octal agrupando de 3 en 3 y binario ↔ hexadecimal de 4 en 4 (A3C5H = 1010 0011 1100 0101).</p>
+<p class="run"><b>Enteros:</b> sin signo; signo y magnitud (dos ceros, procesamiento distinto); <b>complemento a 1</b> \(C_{B-1,k}(N)=B^k-N-1\) (invertir bits; dos ceros); <b>complemento a 2</b> \(C_{B,k}(N)=B^k-N\): invertir y sumar 1, o copiar hasta el primer 1 e invertir el resto; un solo cero, positivos y negativos se procesan igual; rango con n bits \([-2^{n-1},2^{n-1}-1]\). Sesgado y BCD. <b>Desbordamiento</b>: el resultado no cabe en los bits; con 4 bits en C2, 7 + 1 = 1000 = −8 (el acarreo se pierde y el signo cambia).</p>
+<p class="run"><b>IEEE 754:</b> (32 bits): 1 bit de signo, 8 de exponente sesgado (sesgo 127, válidos 1-254 ⇒ exponentes −126…127), 23 de mantisa normalizada (1,xxx: el 1 no se guarda). Exponente 0: cero y <b>denormalizados</b> (exponente −126, sin 1 implícito: los más pequeños alrededor de 0); exponente 255: ±∞ (mantisa 0) y NaN. Mayor densidad de números cerca del cero; el normalizado positivo más pequeño es mayor que el denormalizado más grande; no todas las \(2^{32}\) combinaciones son números válidos. Ejemplo: 8,75 = 1000,11 = 1,00011·2³ → 0 10000010 00011000…</p></div>
 <!--ill--><div class="ill-wrap"><h3 class="ill-h" style="margin:22px 0 4px">En imágenes</h3><figure class="ill"><div class="ill-t">Cada bit vale una potencia de 2</div><svg viewBox="0 0 560 262" role="img" aria-label="De binario a decimal y hexadecimal" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,sans-serif"><text x="38" y="54" fill="var(--muted)" font-size="12" text-anchor="middle" opacity="1">128</text><rect x="24" y="62" width="28" height="32" rx="4" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.22"/><text x="38" y="84" fill="var(--fg)" font-size="16" text-anchor="middle" font-weight="700" opacity="1">1</text><text x="68" y="54" fill="var(--muted)" font-size="12" text-anchor="middle" opacity="1">64</text><rect x="54" y="62" width="28" height="32" rx="4" fill="var(--surface,#fff)" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="1"/><text x="68" y="84" fill="var(--fg)" font-size="16" text-anchor="middle" font-weight="700" opacity="1">0</text><text x="98" y="54" fill="var(--muted)" font-size="12" text-anchor="middle" opacity="1">32</text><rect x="84" y="62" width="28" height="32" rx="4" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.22"/><text x="98" y="84" fill="var(--fg)" font-size="16" text-anchor="middle" font-weight="700" opacity="1">1</text><text x="128" y="54" fill="var(--muted)" font-size="12" text-anchor="middle" opacity="1">16</text><rect x="114" y="62" width="28" height="32" rx="4" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.22"/><text x="128" y="84" fill="var(--fg)" font-size="16" text-anchor="middle" font-weight="700" opacity="1">1</text><text x="158" y="54" fill="var(--muted)" font-size="12" text-anchor="middle" opacity="1">8</text><rect x="144" y="62" width="28" height="32" rx="4" fill="var(--surface,#fff)" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="1"/><text x="158" y="84" fill="var(--fg)" font-size="16" text-anchor="middle" font-weight="700" opacity="1">0</text><text x="188" y="54" fill="var(--muted)" font-size="12" text-anchor="middle" opacity="1">4</text><rect x="174" y="62" width="28" height="32" rx="4" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.22"/><text x="188" y="84" fill="var(--fg)" font-size="16" text-anchor="middle" font-weight="700" opacity="1">1</text><text x="218" y="54" fill="var(--muted)" font-size="12" text-anchor="middle" opacity="1">2</text><rect x="204" y="62" width="28" height="32" rx="4" fill="var(--surface,#fff)" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="1"/><text x="218" y="84" fill="var(--fg)" font-size="16" text-anchor="middle" font-weight="700" opacity="1">0</text><text x="248" y="54" fill="var(--muted)" font-size="12" text-anchor="middle" opacity="1">1</text><rect x="234" y="62" width="28" height="32" rx="4" fill="var(--tc,var(--accent))" stroke="var(--tc,var(--accent))" stroke-width="2" opacity="0.22"/><text x="248" y="84" fill="var(--fg)" font-size="16" text-anchor="middle" font-weight="700" opacity="1">1</text><line x1="24" y1="104" x2="140" y2="104" stroke="var(--warn,#b8730c)" stroke-width="2.2" opacity="1" stroke-linecap="round"/><line x1="24" y1="100" x2="24" y2="104" stroke="var(--warn,#b8730c)" stroke-width="2.2" opacity="1" stroke-linecap="round"/><line x1="140" y1="100" x2="140" y2="104" stroke="var(--warn,#b8730c)" stroke-width="2.2" opacity="1" stroke-linecap="round"/><text x="82" y="124" fill="var(--warn,#b8730c)" font-size="14.5" text-anchor="middle" font-weight="700" opacity="1">1011 = B</text><line x1="144" y1="104" x2="260" y2="104" stroke="var(--warn,#b8730c)" stroke-width="2.2" opacity="1" stroke-linecap="round"/><line x1="144" y1="100" x2="144" y2="104" stroke="var(--warn,#b8730c)" stroke-width="2.2" opacity="1" stroke-linecap="round"/><line x1="260" y1="100" x2="260" y2="104" stroke="var(--warn,#b8730c)" stroke-width="2.2" opacity="1" stroke-linecap="round"/><text x="202" y="124" fill="var(--warn,#b8730c)" font-size="14.5" text-anchor="middle" font-weight="700" opacity="1">0101 = 5</text><text x="24" y="156" fill="var(--fg)" font-size="14.5" text-anchor="start" font-weight="600" opacity="1">128 + 32 + 16 + 4 + 1 = 181</text><text x="24" y="184" fill="var(--tc,var(--accent))" font-size="16" text-anchor="start" font-weight="700" opacity="1">10110101₂ = 181₁₀ = B5₁₆</text><text x="24" y="214" fill="var(--muted)" font-size="13" text-anchor="start" opacity="1">n bits → 2<tspan font-size="8.8" dy="-4.9">n</tspan><tspan dy="4.9"></tspan> valores (de 0 a 2<tspan font-size="8.8" dy="-4.9">n</tspan><tspan dy="4.9"></tspan> − 1)</text><text x="312" y="60" fill="var(--fg)" font-size="14.5" text-anchor="start" font-weight="700" opacity="1">Binario → decimal:</text><text x="312" y="82" fill="var(--fg)" font-size="14" text-anchor="start" opacity="1">suma los pesos de</text><text x="312" y="104" fill="var(--fg)" font-size="14" text-anchor="start" opacity="1">los bits a 1.</text><text x="312" y="137" fill="var(--fg)" font-size="14.5" text-anchor="start" font-weight="700" opacity="1">Binario → hexadecimal:</text><text x="312" y="159" fill="var(--fg)" font-size="14" text-anchor="start" opacity="1">agrupa de 4 en 4.</text><text x="312" y="192" fill="var(--warn,#b8730c)" font-size="14" text-anchor="start" font-weight="700" opacity="1">A=10 … F=15</text></svg><figcaption>Un byte tiene 8 bits: de 0 a 255. Cada grupo de 4 bits (nibble) es un dígito hexadecimal, por eso el hexadecimal resume muy bien el binario.</figcaption></figure><figure class="ill"><div class="ill-t">Signo, exponente y mantisa</div><svg viewBox="0 0 560 262" role="img" aria-label="Coma flotante IEEE 754 (32 bits)" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,Segoe UI,sans-serif"><rect x="24" y="66" width="26" height="34" rx="3" fill="var(--c5,#c43d63)" stroke="var(--c5,#c43d63)" stroke-width="2" opacity="0.18"/><text x="37" y="88" fill="var(--fg)" font-size="13" text-anchor="middle" font-weight="700" opacity="1">1</text><rect x="50" y="66" width="100" height="34" rx="3" fill="var(--c2,#3a63c4)" stroke="var(--c2,#3a63c4)" stroke-width="2" opacity="0.18"/><text x="100" y="88" fill="var(--fg)" font-size="13" text-anchor="middle" font-weight="700" opacity="1">exponente</text><rect x="150" y="66" width="114" height="34" rx="3" fill="var(--c6,#2c8a52)" stroke="var(--c6,#2c8a52)" stroke-width="2" opacity="0.18"/><text x="207" y="88" fill="var(--fg)" font-size="13" text-anchor="middle" font-weight="700" opacity="1">mantisa</text><text x="37" y="58" fill="var(--muted)" font-size="11.5" text-anchor="middle" opacity="1">signo</text><text x="100" y="58" fill="var(--muted)" font-size="11.5" text-anchor="middle" opacity="1">8 bits</text><text x="207" y="58" fill="var(--muted)" font-size="11.5" text-anchor="middle" opacity="1">23 bits</text><text x="24" y="134" fill="var(--tc,var(--accent))" font-size="15" text-anchor="start" font-weight="700" opacity="1">valor = (−1)ˢ · 1,m · 2^(e − 127)</text><text x="24" y="166" fill="var(--fg)" font-size="14" text-anchor="start" font-weight="600" opacity="1">0,15625 = 1,25 · 2⁻³</text><text x="24" y="186" fill="var(--fg)" font-size="14" text-anchor="start" font-weight="600" opacity="1">e = 127 − 3 = 124 = 01111100</text><text x="24" y="206" fill="var(--fg)" font-size="14" text-anchor="start" font-weight="600" opacity="1">m = 0,25 → 01000…0</text><text x="312" y="64" fill="var(--fg)" font-size="14.5" text-anchor="start" font-weight="600" opacity="1">float: 32 bits</text><text x="312" y="86" fill="var(--fg)" font-size="14.5" text-anchor="start" font-weight="600" opacity="1">double: 64 bits</text><text x="312" y="119" fill="var(--warn,#b8730c)" font-size="14.5" text-anchor="start" font-weight="700" opacity="1">Precisión finita:</text><text x="312" y="141" fill="var(--warn,#b8730c)" font-size="14" text-anchor="start" opacity="1">0,1 no se guarda exacto.</text><text x="312" y="174" fill="var(--muted)" font-size="13.5" text-anchor="start" opacity="1">Compara con tolerancia,</text><text x="312" y="196" fill="var(--muted)" font-size="13.5" text-anchor="start" opacity="1">no con ==.</text></svg><figcaption>El número se normaliza como 1,m × 2^k. El exponente se guarda con sesgo (+127) y la mantisa solo guarda la parte fraccionaria.</figcaption></figure></div><!--/ill--><details class="nom"><summary><span aria-hidden="true" class="nom-ic">Aa</span>Nomenclatura del tema 2 <span class="src">5 símbolos</span></summary><div class="inner">
 <div class="tw"><table><tr><th>Símbolo</th><th>Qué significa</th><th>Unidades · ejemplo</th></tr><tr><td class="sym">bit, byte</td><td>Unidad mínima; 8 bits</td><td class="u"></td></tr><tr><td class="sym">B, O, H</td><td>Bases 2, 8, 16</td><td class="u"></td></tr><tr><td class="sym">C1, C2</td><td>Complementos a 1 y a 2</td><td class="u">C2: invertir y sumar 1</td></tr><tr><td class="sym">IEEE 754</td><td>1 + 8 + 23 bits</td><td class="u">sesgo 127</td></tr><tr><td class="sym">uma… no: overflow</td><td>Desbordamiento</td><td class="u">el resultado no cabe</td></tr></table></div></div></details>
 <figure class="fig"><p class="ft">Figura interactiva · binario, octal, hexadecimal, complemento a 2 e IEEE 754</p><div data-sim="binario"></div><figcaption>Mueve los controles y lee el recuadro: la figura ejecuta lo mismo que tú trazarías a mano en el examen.</figcaption></figure>
-<!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Binario, hexadecimal y complemento a 2</p><p>Un número binario se lee con potencias de 2: \(1011_2=8+2+1=11\). Para pasar de decimal a binario, divide sucesivamente entre 2 y lee los restos <b>de abajo arriba</b>. El hexadecimal es solo una forma compacta: cada dígito hexa son <b>4 bits</b> (A=1010, F=1111).</p>
+<!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Binario, hexadecimal y complemento a 2</p><p class="lede">Un número binario se lee con potencias de 2: \(1011_2=8+2+1=11\). Para pasar de decimal a binario, divide sucesivamente entre 2 y lee los restos <b>de abajo arriba</b>. El hexadecimal es solo una forma compacta: cada dígito hexa son <b>4 bits</b> (A=1010, F=1111).</p>
 <p>Los negativos se guardan en <b>complemento a 2</b>: para obtener \(-N\), se invierten los bits de \(N\) y se suma 1. El bit más alto vale \(-2^{n-1}\), y ese es el bit de signo. Ventaja: la suma funciona igual con y sin signo, y el rango con \(n\) bits es \([-2^{n-1},\,2^{n-1}-1]\).</p><p class="ft">Desbordamiento y coma flotante</p><p>Si el resultado de una suma no cabe en los bits disponibles hay <b>desbordamiento</b> (overflow). En C2 se detecta cuando dos operandos del mismo signo dan un resultado de signo contrario. El computador no avisa: simplemente se queda con los bits bajos.</p>
 <p>Los reales se almacenan en <b>coma flotante IEEE 754</b>: 1 bit de signo, 8 de exponente (con sesgo 127) y 23 de mantisa (la parte tras la coma de \(1{,}m\)) en simple precisión. Valor: \((-1)^s\cdot1{,}m\cdot2^{e-127}\). Muchos decimales sencillos (como 0,1) <b>no tienen</b> representación exacta, y de ahí los errores de redondeo.</p></div><!--/amp1--><!--deep--><h3 id="t2-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
-<h4>1. Representar números en binario</h4>
+<h4><span class="hn">1</span>Representar números en binario</h4>
 <ul><li><b>Binario a decimal:</b> \(1011_2=1\cdot8+0\cdot4+1\cdot2+1\cdot1=11\).</li><li><b>Decimal a binario:</b> divide entre 2 y lee los restos <b>de abajo arriba</b>.</li><li><b>Hexadecimal:</b> cada cifra son 4 bits. \(\mathrm{0xB}=1011_2\). Es una forma corta de escribir binario.</li></ul>
 <p>Con \(n\) bits se representan \(2^n\) valores: de 0 a \(2^n-1\) sin signo.</p>
 <details class="dem"><summary><span class="pn">∴</span>Números negativos: complemento a 2</summary><div class="inner"><ol class="pasos"><li>Escribe el valor absoluto en binario con \(n\) bits.</li><li><b>Invierte</b> todos los bits.</li><li><b>Suma 1</b>.</li></ol>
 <ul><li>Rango con \(n\) bits: de \(-2^{n-1}\) a \(2^{n-1}-1\). Con 8 bits, de −128 a 127.</li><li>El bit más alto indica el signo.</li><li>La ventaja: <b>la suma funciona igual</b> con y sin signo, sin circuitos distintos.</li></ul>
 <div class="box trap deepnote"><b>Cuidado.</b> <b>Desbordamiento:</b> si el resultado no cabe, el valor «da la vuelta» (127 + 1 = −128 en 8 bits).</div></div></details>
-<h4>2. Números reales: coma flotante (IEEE 754)</h4>
+<h4><span class="hn">2</span>Números reales: coma flotante (IEEE 754)</h4>
 <div class="eqd">\[x=(-1)^s\times1{,}m\times2^{\,e-\text{sesgo}}\]</div>
 <ul><li>Un <b>signo</b> \(s\), un <b>exponente</b> \(e\) (con sesgo) y una <b>mantisa</b> \(m\).</li><li><b>Precisión simple</b> (float): 32 bits (1 + 8 + 23), sesgo 127. <b>Doble</b> (double): 64 bits (1 + 11 + 52), sesgo 1023.</li></ul>
 <div class="box trap deepnote"><b>Cuidado.</b> Muchos decimales (como 0,1) <b>no tienen representación exacta</b> en binario. Por eso no se comparan reales con <code>==</code>: se compara \(|a-b|<\varepsilon\).</div>
