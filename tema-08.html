@@ -118,7 +118,7 @@ mjx-container:not([display="true"]){padding:.2em .32em}
 <!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Qué hace un sistema operativo</p><p class="lede">El sistema operativo es el software que <b>reparte los recursos</b> (CPU, memoria, disco, dispositivos) entre los programas y ofrece una interfaz sencilla al usuario. Sus funciones principales: <b>gestión de procesos</b> (qué programa usa la CPU y cuándo), <b>gestión de memoria</b> (dónde vive cada proceso), <b>sistema de archivos</b> (cómo se organizan los datos en disco) y <b>E/S</b> (controladores de dispositivos).</p>
 <p>Un <b>proceso</b> es un programa en ejecución; puede estar <i>listo</i>, <i>ejecutando</i> o <i>bloqueado</i> esperando una E/S.</p><p class="ft">Planificación, memoria virtual y permisos</p><p>El <b>planificador</b> decide el orden de los procesos. FCFS (primero en llegar, primero en servirse) es simple pero injusto con los cortos; SJF (el más corto primero) minimiza el tiempo medio de espera; Round Robin da un turno (<i>quantum</i>) a cada uno por turnos.</p>
 <p>Con <b>paginación</b>, la memoria se divide en páginas de tamaño fijo; una dirección lógica se descompone en <b>número de página</b> y <b>desplazamiento</b>: página = dirección ÷ tamaño de página (cociente), desplazamiento = resto.</p>
-<p>En sistemas tipo Unix, los permisos se dan para propietario, grupo y otros, con r=4, w=2, x=1: <code>chmod 754</code> da <code>rwxr-xr--</code>.</p></div><!--/amp1--><!--manim:inf-t8--><figure class="fig manim-fig" id="anim-inf-t8"><p class="ft">Animación · Planificación Round Robin</p><div class="manim" data-anim="inf-t8"><p class="muted">Activa JavaScript para ver la animación.</p></div><figcaption>Se reproduce sola al llegar a ella. Puedes pausarla, arrastrar la barra para ir a cualquier instante y cambiar la velocidad.</figcaption></figure><!--/manim-->
+<p>En sistemas tipo Unix, los permisos se dan para propietario, grupo y otros, con r=4, w=2, x=1: <code>chmod 754</code> da <code>rwxr-xr--</code>.</p></div><!--/amp1--><!--manim:inf-t8--><figure class="fig manim-fig" id="anim-inf-t8"><p class="ft">Animación · Planificación Round Robin</p><div class="manim" data-anim="inf-t8"><p class="muted">Activa JavaScript para ver la animación.</p></div><figcaption>Se reproduce sola al llegar a ella. Puedes pausarla, arrastrar la barra para ir a cualquier instante y cambiar la velocidad. Si aparece «Prueba tú», mueve ese control para fijar tú el parámetro.</figcaption></figure><!--/manim-->
 <!--deep--><h3 id="t8-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
 <h4><span class="hn">1</span>Qué hace un sistema operativo</h4>
 <ul><li><b>Gestiona recursos:</b> procesador, memoria, dispositivos.</li><li><b>Da una interfaz</b> uniforme a los programas (llamadas al sistema) y al usuario (shell, gráfica).</li><li><b>Protege:</b> un programa no puede leer la memoria de otro.</li></ul>
@@ -155,7 +155,7 @@ mjx-container:not([display="true"]){padding:.2em .32em}
 <script src="app.js"></script>
 <script src="test-data.js"></script>
 <script src="sims.js"></script>
-<script src="anim-manim.js?v=19433" defer></script>
-<script src="anim-temas.js?v=19433" defer></script>
+<script src="anim-manim.js?v=26804" defer></script>
+<script src="anim-temas.js?v=26804" defer></script>
 </body>
 </html>

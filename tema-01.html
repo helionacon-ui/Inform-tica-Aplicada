@@ -119,7 +119,7 @@ mjx-container:not([display="true"]){padding:.2em .32em}
 <figure class="fig"><p class="ft">Figura interactiva · ciclo fetch-decode-execute de la CPU</p><div data-sim="vonneumann"></div><figcaption>Mueve los controles y lee el recuadro: la figura ejecuta lo mismo que tú trazarías a mano en el examen.</figcaption></figure>
 <!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Hardware, software y el ciclo de ejecución</p><p class="lede">Un computador es una máquina que ejecuta un <b>programa</b> (software) sobre unos <b>circuitos</b> (hardware). Los componentes de la arquitectura de von Neumann son: <b>CPU</b> (unidad de control + ALU + registros), <b>memoria</b> principal (guarda a la vez datos y programa), <b>buses</b> y <b>dispositivos de entrada/salida</b>.</p>
 <p>La CPU repite sin parar el <b>ciclo</b> de instrucción: <i>captar</i> la instrucción de memoria (el contador de programa dice cuál), <i>decodificar</i> qué hay que hacer y <i>ejecutar</i>; después el contador avanza a la siguiente. Todo programa, por complejo que sea, se reduce a millones de estas operaciones elementales.</p><p class="ft">Unidades de información y órdenes de magnitud</p><p>El <b>bit</b> es la unidad mínima (0 o 1); un <b>byte</b> son 8 bits. Cuidado con los prefijos: los comerciales son decimales (1 kB = 1000 B, 1 MB = 10⁶ B), mientras que los binarios usan potencias de 2 (1 KiB = 1024 B, 1 MiB = 2²⁰ B). Las <b>velocidades de red</b> se miden en <b>bits</b> por segundo (Mbit/s), y los tamaños de archivo, en <b>bytes</b>: de ahí el error típico de un factor 8.</p>
-<p>Con \(n\) bits se distinguen \(2^n\) valores; por eso un bus de direcciones de \(n\) bits direcciona \(2^n\) posiciones de memoria.</p></div><!--/amp1--><!--manim:inf-t1--><figure class="fig manim-fig" id="anim-inf-t1"><p class="ft">Animación · Von Neumann: el ciclo de instrucción</p><div class="manim" data-anim="inf-t1"><p class="muted">Activa JavaScript para ver la animación.</p></div><figcaption>Se reproduce sola al llegar a ella. Puedes pausarla, arrastrar la barra para ir a cualquier instante y cambiar la velocidad.</figcaption></figure><!--/manim-->
+<p>Con \(n\) bits se distinguen \(2^n\) valores; por eso un bus de direcciones de \(n\) bits direcciona \(2^n\) posiciones de memoria.</p></div><!--/amp1--><!--manim:inf-t1--><figure class="fig manim-fig" id="anim-inf-t1"><p class="ft">Animación · Von Neumann: el ciclo de instrucción</p><div class="manim" data-anim="inf-t1"><p class="muted">Activa JavaScript para ver la animación.</p></div><figcaption>Se reproduce sola al llegar a ella. Puedes pausarla, arrastrar la barra para ir a cualquier instante y cambiar la velocidad. Si aparece «Prueba tú», mueve ese control para fijar tú el parámetro.</figcaption></figure><!--/manim-->
 <!--deep--><h3 id="t1-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
 <h4><span class="hn">1</span>Qué es un sistema informático</h4>
 <div class="box key deepnote"><b>Idea clave.</b> un sistema informático son <b>capas</b> que se apoyan unas en otras. Cada capa oculta los detalles de la inferior.</div>
@@ -155,7 +155,7 @@ mjx-container:not([display="true"]){padding:.2em .32em}
 <script src="app.js"></script>
 <script src="test-data.js"></script>
 <script src="sims.js"></script>
-<script src="anim-manim.js?v=19433" defer></script>
-<script src="anim-temas.js?v=19433" defer></script>
+<script src="anim-manim.js?v=26804" defer></script>
+<script src="anim-temas.js?v=26804" defer></script>
 </body>
 </html>
