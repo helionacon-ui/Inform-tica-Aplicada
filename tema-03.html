@@ -118,7 +118,8 @@ mjx-container:not([display="true"]){padding:.2em .32em}
 <figure class="fig"><p class="ft">Figura interactiva · traza de un algoritmo paso a paso</p><div data-sim="traza"></div><figcaption>Mueve los controles y lee el recuadro: la figura ejecuta lo mismo que tú trazarías a mano en el examen.</figcaption></figure>
 <!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Del problema al algoritmo</p><p class="lede">Un <b>algoritmo</b> es una secuencia finita y ordenada de pasos sin ambigüedad que resuelve un problema. Antes de escribir código conviene: (1) entender <b>qué entra y qué debe salir</b>, (2) resolver a mano un caso pequeño, (3) describir los pasos en pseudocódigo o diagrama de flujo y (4) traducir a C.</p>
 <p>La <b>programación estructurada</b> demuestra que basta combinar tres estructuras: <b>secuencia</b>, <b>selección</b> (si/si no) e <b>iteración</b> (mientras). Evita los saltos arbitrarios, lo que hace el programa legible y comprobable.</p><p class="ft">Traza de un algoritmo y su coste</p><p>La herramienta que más puntos da en examen es la <b>traza</b>: una tabla donde, línea a línea, anotas el valor de cada variable. Si dominas la traza, puedes predecir la salida de cualquier programa y encontrar sus errores.</p>
-<p>El <b>coste</b> se estima contando cuántas veces se ejecuta la operación más repetida. Un bucle simple de \(n\) vueltas hace \(n\) operaciones; dos bucles anidados, \(n^2\); un bucle que divide por 2 en cada vuelta, \(\log_2n\). Aunque el computador sea rápido, pasar de \(n\) a \(n^2\) con \(n=10^6\) es la diferencia entre un segundo y días.</p></div><!--/amp1--><!--deep--><h3 id="t3-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
+<p>El <b>coste</b> se estima contando cuántas veces se ejecuta la operación más repetida. Un bucle simple de \(n\) vueltas hace \(n\) operaciones; dos bucles anidados, \(n^2\); un bucle que divide por 2 en cada vuelta, \(\log_2n\). Aunque el computador sea rápido, pasar de \(n\) a \(n^2\) con \(n=10^6\) es la diferencia entre un segundo y días.</p></div><!--/amp1--><!--manim:inf-t3--><figure class="fig manim-fig" id="anim-inf-t3"><p class="ft">Animación · Ordenación por burbuja</p><div class="manim" data-anim="inf-t3"><p class="muted">Activa JavaScript para ver la animación.</p></div><figcaption>Se reproduce sola al llegar a ella. Puedes pausarla, arrastrar la barra para ir a cualquier instante y cambiar la velocidad.</figcaption></figure><!--/manim-->
+<!--deep--><h3 id="t3-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
 <h4><span class="hn">1</span>Algoritmo: qué se pide de él</h4>
 <div class="box key deepnote"><b>Idea clave.</b> un algoritmo es una secuencia <b>finita</b>, <b>precisa</b> y <b>no ambigua</b> de pasos que resuelve un problema y <b>termina</b>.</div>
 <ul><li><b>Entrada, proceso y salida</b>: antes de programar, decide qué datos llegan, qué hay que calcular y qué se devuelve.</li><li>Representaciones: <b>pseudocódigo</b> y <b>diagramas de flujo</b>.</li></ul>
@@ -169,5 +170,7 @@ s=22 n=0</pre><p>La suma es 9+2+7+4 = <b>22</b>. El mismo patrón sirve para con
 <script src="app.js"></script>
 <script src="test-data.js"></script>
 <script src="sims.js"></script>
+<script src="anim-manim.js?v=19433" defer></script>
+<script src="anim-temas.js?v=19433" defer></script>
 </body>
 </html>

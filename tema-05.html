@@ -116,7 +116,8 @@ mjx-container:not([display="true"]){padding:.2em .32em}
 <figure class="fig"><p class="ft">Figura interactiva · patrones de bucles trazados paso a paso</p><div data-sim="bucles"></div><figcaption>Mueve los controles y lee el recuadro: la figura ejecuta lo mismo que tú trazarías a mano en el examen.</figcaption></figure>
 <!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Selección: if, else y switch</p><p class="lede"><code>if (cond) {…} else {…}</code> ejecuta un bloque u otro según una condición. Un valor distinto de 0 es «verdadero». Combina condiciones con <code>&amp;&amp;</code> (y), <code>||</code> (o) y <code>!</code> (no), y no confundas <code>=</code> (asignar) con <code>==</code> (comparar): <code>if (x = 3)</code> asigna 3 y siempre es verdadero.</p>
 <p><code>switch</code> elige entre casos según un valor <b>entero o carácter</b>. Cada caso debe acabar en <code>break</code>; si no, la ejecución <b>«cae»</b> al siguiente. Es una trampa clásica de examen.</p><p class="ft">Repetición: while, do-while, for</p><p>Elige el bucle por la pregunta: ¿sé cuántas vueltas? → <code>for</code>. ¿Repito mientras se cumpla algo, quizá ninguna vez? → <code>while</code>. ¿Debe ejecutarse <b>al menos una vez</b> (p. ej., validar una entrada)? → <code>do-while</code>.</p>
-<p>Dentro del bucle, <code>break</code> lo abandona y <code>continue</code> salta a la siguiente vuelta. Para evitar bucles infinitos, comprueba que algo en el cuerpo acerca la condición a ser falsa. En <code>for</code>, el error típico es el «fuera por uno»: <code>&lt;</code> frente a <code>&lt;=</code>.</p></div><!--/amp1--><!--deep--><h3 id="t5-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
+<p>Dentro del bucle, <code>break</code> lo abandona y <code>continue</code> salta a la siguiente vuelta. Para evitar bucles infinitos, comprueba que algo en el cuerpo acerca la condición a ser falsa. En <code>for</code>, el error típico es el «fuera por uno»: <code>&lt;</code> frente a <code>&lt;=</code>.</p></div><!--/amp1--><!--manim:inf-t5--><figure class="fig manim-fig" id="anim-inf-t5"><p class="ft">Animación · Un bucle for paso a paso</p><div class="manim" data-anim="inf-t5"><p class="muted">Activa JavaScript para ver la animación.</p></div><figcaption>Se reproduce sola al llegar a ella. Puedes pausarla, arrastrar la barra para ir a cualquier instante y cambiar la velocidad.</figcaption></figure><!--/manim-->
+<!--deep--><h3 id="t5-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
 <h4><span class="hn">1</span>Selección: elegir un camino</h4>
 <ul><li><code>if</code> / <code>else if</code> / <code>else</code>: se ejecuta <b>solo la primera rama</b> cuya condición sea cierta.</li><li><code>switch</code>: para elegir entre valores concretos de un entero o carácter. Cada <code>case</code> acaba con <code>break</code>; si lo olvidas, «cae» al siguiente.</li><li>En C, <b>0 es falso</b> y cualquier otro valor es verdadero. Operadores: <code>&amp;&amp;</code> (y), <code>||</code> (o), <code>!</code> (no).</li></ul>
 <div class="box trap deepnote"><b>Cuidado.</b> <code>if (x = 5)</code> asigna, no compara. Escribe <code>==</code>.</div>
@@ -198,5 +199,7 @@ tres</pre><p>Entra por <code>case 2</code>, imprime «dos» y, como no hay <code
 <script src="app.js"></script>
 <script src="test-data.js"></script>
 <script src="sims.js"></script>
+<script src="anim-manim.js?v=19433" defer></script>
+<script src="anim-temas.js?v=19433" defer></script>
 </body>
 </html>

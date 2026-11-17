@@ -118,7 +118,8 @@ mjx-container:not([display="true"]){padding:.2em .32em}
 <figure class="fig"><p class="ft">Figura interactiva · burbuja y búsqueda binaria paso a paso</p><div data-sim="ordenacion"></div><figcaption>Mueve los controles y lee el recuadro: la figura ejecuta lo mismo que tú trazarías a mano en el examen.</figcaption></figure>
 <!--amp1--><div class="zero" style="margin-top:14px"><p class="ft">Explicación ampliada</p><p class="ft">Vectores y matrices: la memoria como una fila de cajas</p><p class="lede">Un <b>vector</b> <code>int v[6]</code> reserva 6 enteros contiguos, numerados de <b>0 a 5</b>. Acceder a <code>v[6]</code> es un error (C no lo comprueba: lee o escribe memoria ajena). Se recorre con un <code>for</code>; el patrón fundamental es el de <b>máximo</b>: inicializar con el primer elemento y comparar con el resto.</p>
 <p>Una <b>matriz</b> <code>m[F][C]</code> se recorre con dos bucles anidados (filas fuera, columnas dentro). Diagonal principal: \(i=j\); triángulo superior: \(j>i\); inferior: \(j<i\).</p><p class="ft">Cadenas de caracteres</p><p>En C una cadena es un vector de <code>char</code> que <b>termina en el carácter nulo</b> <code>'\0'</code>. Una cadena de 4 letras necesita un vector de al menos 5. <code>strlen</code> cuenta hasta el nulo (sin incluirlo); no se pueden asignar ni comparar cadenas con <code>=</code> o <code>==</code>: hay que usar <code>strcpy</code> y <code>strcmp</code> (de <code>&lt;string.h&gt;</code>).</p>
-<p>Al construir una cadena a mano, no olvides escribir el <code>'\0'</code> final; si falta, <code>printf("%s")</code> seguirá imprimiendo basura hasta encontrar un nulo.</p></div><!--/amp1--><!--deep--><h3 id="t6-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
+<p>Al construir una cadena a mano, no olvides escribir el <code>'\0'</code> final; si falta, <code>printf("%s")</code> seguirá imprimiendo basura hasta encontrar un nulo.</p></div><!--/amp1--><!--manim:inf-t6--><figure class="fig manim-fig" id="anim-inf-t6"><p class="ft">Animación · Búsqueda binaria</p><div class="manim" data-anim="inf-t6"><p class="muted">Activa JavaScript para ver la animación.</p></div><figcaption>Se reproduce sola al llegar a ella. Puedes pausarla, arrastrar la barra para ir a cualquier instante y cambiar la velocidad.</figcaption></figure><!--/manim-->
+<!--deep--><h3 id="t6-profundiza">Desarrollo teórico a fondo</h3><div class="deep">
 <h4><span class="hn">1</span>Vectores (arrays)</h4>
 <ul><li>Un vector es una colección de elementos del <b>mismo tipo</b> en memoria <b>contigua</b>: <code>int v[10];</code>.</li><li>Los índices van de <b>0 a n−1</b>.</li><li>C <b>no comprueba los límites</b>: <code>v[10]</code> en un vector de 10 escribe fuera y puede dañar otros datos o romper el programa.</li></ul>
 <p>Patrones: recorrer con <code>for</code>, sumar, buscar un máximo, buscar un valor, invertir, ordenar.</p>
@@ -194,5 +195,7 @@ r[n] = '\0';</pre></div><details class="paso"><summary><span class="pn">✓</spa
 <script src="app.js"></script>
 <script src="test-data.js"></script>
 <script src="sims.js"></script>
+<script src="anim-manim.js?v=19433" defer></script>
+<script src="anim-temas.js?v=19433" defer></script>
 </body>
 </html>
